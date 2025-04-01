@@ -1,35 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
+import { fetchAnimeBySearch } from "../../../utils/fetchAnime";
 
 export async function POST(req: NextRequest) {
   try {
     const { answers } = await req.json();
 
-    // Combine answers into a single string prompt
-    const prompt = answers.map((a: { q: string; a: string }) => `${a.q} ${a.a}`).join(". ");
+    // Combine user answers into one big keyword blob
+    const keywords = answers.map((a: { a: string }) => a.a).join(" ");
+    console.log("Generated search keywords:", keywords);
 
-    // TODO: Replace with real logic or call your fetchAnimeByGenre / embedding engine
-    // Temporary mock results:
-    const mockAnime = [
-      {
-        title: { romaji: "Your Lie in April" },
-        coverImage: { large: "https://cdn.myanimelist.net/images/anime/3/67177.jpg" },
-        description: "A piano prodigy who lost his ability to hear music after his mother's death meets a free-spirited violinist."
-      },
-      {
-        title: { romaji: "Mob Psycho 100" },
-        coverImage: { large: "https://cdn.myanimelist.net/images/anime/8/80356.jpg" },
-        description: "A boy with psychic powers tries to live a normal life while dealing with spirits, self-control, and his over-the-top mentor."
-      },
-      {
-        title: { romaji: "Anohana: The Flower We Saw That Day" },
-        coverImage: { large: "https://cdn.myanimelist.net/images/anime/5/73199.jpg" },
-        description: "A group of childhood friends reunite years after a tragic accident, as the ghost of their lost friend brings them back together."
-      }
-    ];
+    // Query AniList for matching anime
+    const animeList = await fetchAnimeBySearch(keywords);
 
-    return NextResponse.json(mockAnime);
+    // Return top 3 results
+    return NextResponse.json(animeList.slice(0, 3));
   } catch (error) {
     console.error("Recommend API error:", error);
-    return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to fetch recommendations" }, { status: 500 });
   }
 }

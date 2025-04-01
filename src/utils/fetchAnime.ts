@@ -1,33 +1,32 @@
-// utils/fetchAnime.ts
-const ANILIST_API = 'https://graphql.anilist.co';
+const ANILIST_API = "https://graphql.anilist.co";
 
-export async function fetchAnimeByGenre(genre: string) {
-  const query = `query ($genre: String) {
-    Page(perPage: 10) {
-      media(genre_in: [$genre], type: ANIME) {
-        id
-        title {
-          romaji
+export async function fetchAnimeBySearch(query: string): Promise<any[]> {
+  const gqlQuery = `
+    query ($search: String) {
+      Page(perPage: 10) {
+        media(search: $search, type: ANIME) {
+          id
+          title {
+            romaji
+          }
+          coverImage {
+            large
+          }
+          description(asHtml: false)
         }
-        coverImage {
-          large
-        }
-        description(asHtml: false)
       }
     }
-  }`;
+  `;
 
-  const response = await fetch(ANILIST_API, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const res = await fetch(ANILIST_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      query,
-      variables: { genre },
-    }),
+      query: gqlQuery,
+      variables: { search: query }
+    })
   });
 
-  const data = await response.json();
-  return data.data.Page.media;
+  const json = await res.json();
+  return json.data?.Page?.media || [];
 }
