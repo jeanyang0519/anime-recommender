@@ -1,21 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchAnimeBySearch } from "../../../utils/fetchAnime";
+import { fetchAnimeByGenres } from "../../../utils/fetchAnime";
 
 export async function POST(req: NextRequest) {
   try {
     const { answers } = await req.json();
 
-    // Combine user answers into one big keyword blob
-    const keywords = answers.map((a: { a: string }) => a.a).join(" ");
-    console.log("Generated search keywords:", keywords);
+    // Get list of genres from answers
+    const allGenres = answers.map((a: { genre: string }) => a.genre);
 
-    // Query AniList for matching anime
-    const animeList = await fetchAnimeBySearch(keywords);
+    // Count genre frequencies and sort by most picked
+    const genreCounts: Record<string, number> = {};
+    allGenres.forEach((genre: string) => {
+      genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+    });
 
-    // Return top 3 results
+    const sortedGenres = Object.entries(genreCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([genre]) => genre);
+
+    // Fetch anime using top 3 genres
+    const topGenres = sortedGenres.slice(0, 3);
+    const animeList = await fetchAnimeByGenres(topGenres);
+
     return NextResponse.json(animeList.slice(0, 3));
   } catch (error) {
-    console.error("Recommend API error:", error);
-    return NextResponse.json({ error: "Failed to fetch recommendations" }, { status: 500 });
+    console.error("Recommendation error:", error);
+    return NextResponse.json({ error: "Failed to generate recommendations" }, { status: 500 });
   }
 }

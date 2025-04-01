@@ -1,10 +1,10 @@
 const ANILIST_API = "https://graphql.anilist.co";
 
-export async function fetchAnimeBySearch(query: string): Promise<any[]> {
-  const gqlQuery = `
-    query ($search: String) {
+export async function fetchAnimeByGenres(genres: string[]): Promise<any[]> {
+  const query = `
+    query ($genres: [String]) {
       Page(perPage: 10) {
-        media(search: $search, type: ANIME) {
+        media(genre_in: $genres, type: ANIME, sort: POPULARITY_DESC) {
           id
           title {
             romaji
@@ -18,15 +18,15 @@ export async function fetchAnimeBySearch(query: string): Promise<any[]> {
     }
   `;
 
-  const res = await fetch(ANILIST_API, {
+  const response = await fetch(ANILIST_API, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      query: gqlQuery,
-      variables: { search: query }
+      query,
+      variables: { genres }
     })
   });
 
-  const json = await res.json();
+  const json = await response.json();
   return json.data?.Page?.media || [];
 }

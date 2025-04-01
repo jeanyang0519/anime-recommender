@@ -1,17 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { QUESTIONS } from "./questions";
-
-export type Question = {
-  id: number;
-  question: string;
-  options: string[];
-};
+import { QUESTIONS, Option } from "./questions";
 
 export type Answer = {
   q: string;
   a: string;
+  genre: string;
 };
 
 function shuffle<T>(array: T[]): T[] {
@@ -19,7 +14,7 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 export default function HomePage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<typeof QUESTIONS>([]);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [recommendations, setRecommendations] = useState<any[] | null>(null);
@@ -29,8 +24,8 @@ export default function HomePage() {
     setShuffledQuestions(selected);
   }, []);
 
-  const handleAnswer = (answer: string) => {
-    const nextAnswers = [...answers, { q: shuffledQuestions[current].question, a: answer }];
+  const handleAnswer = (option: Option) => {
+    const nextAnswers = [...answers, { q: shuffledQuestions[current].question, a: option.label, genre: option.genre }];
     setAnswers(nextAnswers);
 
     if (current + 1 < 10) {
@@ -84,7 +79,7 @@ export default function HomePage() {
             onClick={() => handleAnswer(option)}
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
           >
-            {option}
+            {option.label}
           </button>
         ))}
       </div>
