@@ -1,24 +1,35 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { QUESTIONS } from "../questions";
+import { QUESTIONS } from "./questions";
 
-function shuffle(array) {
+export type Question = {
+  id: number;
+  question: string;
+  options: string[];
+};
+
+export type Answer = {
+  q: string;
+  a: string;
+};
+
+function shuffle<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
 export default function HomePage() {
-  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [shuffledQuestions, setShuffledQuestions] = useState<Question[]>([]);
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const [recommendations, setRecommendations] = useState(null);
+  const [answers, setAnswers] = useState<Answer[]>([]);
+  const [recommendations, setRecommendations] = useState<any[] | null>(null);
 
   useEffect(() => {
     const selected = shuffle(QUESTIONS).slice(0, 10);
     setShuffledQuestions(selected);
   }, []);
 
-  const handleAnswer = (answer) => {
+  const handleAnswer = (answer: string) => {
     const nextAnswers = [...answers, { q: shuffledQuestions[current].question, a: answer }];
     setAnswers(nextAnswers);
 
@@ -29,7 +40,7 @@ export default function HomePage() {
     }
   };
 
-  const getRecommendations = async (answers) => {
+  const getRecommendations = async (answers: Answer[]) => {
     try {
       const res = await fetch("/api/recommend", {
         method: "POST",
