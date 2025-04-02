@@ -20,7 +20,7 @@ export default function HomePage() {
   const [recommendations, setRecommendations] = useState<any[] | null>(null);
 
   useEffect(() => {
-    const selected = shuffle(QUESTIONS).slice(0, 10);
+    const selected = shuffle(QUESTIONS).slice(0, 5);
     setShuffledQuestions(selected);
   }, []);
 
@@ -28,7 +28,7 @@ export default function HomePage() {
     const nextAnswers = [...answers, { q: shuffledQuestions[current].question, a: option.label, genre: option.genre }];
     setAnswers(nextAnswers);
 
-    if (current + 1 < 10) {
+    if (current + 1 < shuffledQuestions.length) {
       setCurrent(current + 1);
     } else {
       getRecommendations(nextAnswers);
@@ -49,42 +49,78 @@ export default function HomePage() {
     }
   };
 
+  const restartQuiz = () => {
+    setShuffledQuestions(shuffle(QUESTIONS).slice(0, 5));
+    setCurrent(0);
+    setAnswers([]);
+    setRecommendations(null);
+  };
+
   if (recommendations) {
     return (
-      <div className="p-6 max-w-xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Your Anime Recommendations</h1>
-        {recommendations.map((anime, index) => (
-          <div key={index} className="mb-6 border p-4 rounded shadow">
-            <h2 className="text-xl font-semibold">{anime.title.romaji}</h2>
-            <img src={anime.coverImage.large} alt={anime.title.romaji} className="w-40 mt-2" />
-            <p className="text-sm mt-2">{anime.description?.slice(0, 200)}...</p>
-          </div>
-        ))}
+      <div className="p-8 max-w-full mx-auto text-center">
+        <h1 className="text-4xl font-extrabold mb-6 tracking-tight">✨ This is meant to be ✨</h1>
+        <p className="text-lg mb-8">These are the anime the universe (and your choices) screamed at us to show you:</p>
+        <div className="overflow-x-auto w-full px-4 pb-8">
+        <div className="flex gap-6 snap-x snap-mandatory justify-center w-fit mx-auto">
+          {recommendations.map((anime, index) => (
+            <div
+              key={index}
+              className="w-80 shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
+            >
+              <h2 className="text-2xl font-semibold mb-2">{anime.title.romaji}</h2>
+              <img
+                src={anime.coverImage.large}
+                alt={anime.title.romaji}
+                className="w-48 mx-auto rounded-lg"
+              />
+              <p
+                className="text-base text-left mt-4"
+                dangerouslySetInnerHTML={{
+                  __html: anime.description,
+                }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+
+
+
+        <button
+          onClick={restartQuiz}
+          className="border-2 mt-6 px-6 py-3 rounded-full bg-yellow-100 hover:bg-yellow-250 text-black font-semibold shadow-md"
+        >
+          Back to home
+        </button>
       </div>
     );
   }
 
-  if (shuffledQuestions.length === 0) return <p className="p-6">Loading...</p>;
+  if (shuffledQuestions.length === 0) return <p className="p-6 text-center">Loading the chaos...</p>;
 
   const q = shuffledQuestions[current];
 
   return (
-    <div className="p-6 max-w-xl mx-auto text-center">
-      <h1 className="text-2xl font-bold mb-4">Anime Vibe Quiz</h1>
-      <p className="text-lg mb-6">{q.question}</p>
-      <div className="flex flex-col gap-4">
+    <div className="p-4 mx-auto text-center">
+      <h1 className="text-4xl font-extrabold mb-4 tracking-tight">Let me help you pick your next anime to watch</h1>
+      <p className="text-lg mb-8">These picks will help. Or hurt. I don’t know. Good luck.</p>
+      <p className="text-xl font-medium mb-6">{q.question}</p>
+      <div className="w-100 mx-auto flex flex-col gap-4">
         {q.options.map((option, i) => (
           <button
             key={i}
             onClick={() => handleAnswer(option)}
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="bg-blue-100 text-black py-3 px-6 rounded-full hover:bg-blue-400 transition-all shadow-md"
           >
             {option.label}
           </button>
         ))}
       </div>
-      <p className="mt-6 text-sm text-gray-500">
-        Question {current + 1} of 10
+      <p className="mt-6 text-sm text-gray-400">
+        Question {current + 1} of 5
       </p>
     </div>
   );
