@@ -28,6 +28,10 @@ h1 {
   @apply bg-white text-black p-6 rounded-4xl shadow-md border-2 border-black
 }
 
+.read-more {
+  @apply mt-2 text-sm underline cursor-pointer
+}
+
 body {
   /* background: var(--background); */
   color: black;

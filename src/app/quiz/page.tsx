@@ -19,6 +19,7 @@ export default function QuizPage() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [recommendations, setRecommendations] = useState<any[] | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const selected = shuffle(QUESTIONS).slice(0, 5);
@@ -82,13 +83,26 @@ export default function QuizPage() {
                 className="w-48 mx-auto rounded-lg"
               />
               <p
-                className="text-base mt-4 text-left"
-                dangerouslySetInnerHTML={{ __html: anime.description}}
-              />
+            className="text-base mt-4 text-left"
+            dangerouslySetInnerHTML={{
+                __html: expanded
+                ? anime.description
+                : anime.description?.slice(0, 500) + '...'
+            }}
+            />
+
+            {anime.description?.length > 300 && (
+            <button
+                onClick={() => setExpanded(!expanded)}
+                className="read-more"
+            >
+                {expanded ? "Show less" : "Read more"}
+            </button>
+            )}
             </div>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+        <div className="flex flex-row sm:flex-row gap-4 justify-center mt-6">
           <button
             onClick={restartQuiz}
             className="btn-yellow"

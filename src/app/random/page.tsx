@@ -1,13 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
 import { fallbackAnime } from "../data/fallbackAnime";
 
+
+
 export default function RandomPick() {
   const [anime, setAnime] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(true);
+  const [shouldTruncate, setShouldTruncate] = useState(false);
+  const descriptionRef = useRef<HTMLDivElement>(null);
+
 
   const getRandom = async () => {
     setLoading(true);
@@ -36,6 +42,22 @@ export default function RandomPick() {
     getRandom();
   }, []);
 
+  useEffect(() => {
+    if (!anime) return;
+  
+    const timeout = setTimeout(() => {
+      const height = descriptionRef.current?.offsetHeight || 0;
+  
+      const needsTruncation = height > 300 || anime.description?.length > 300;
+      setShouldTruncate(needsTruncation);
+      setExpanded(!needsTruncation); // collapse only if needed
+    }, 50);
+  
+    return () => clearTimeout(timeout);
+  }, [anime]);
+  
+  
+
   if (loading) return <p className="text-center p-6">Loading your random anime...</p>;
 
   return (
@@ -53,12 +75,34 @@ export default function RandomPick() {
           alt={anime.title.romaji}
           className="w-48 mx-auto rounded-lg"
         />
-        <p
-          className="text-base mt-4 text-left"
-          dangerouslySetInnerHTML={{
-            __html: anime.description
-          }}
-        />
+        <div
+  ref={descriptionRef}
+  className="text-base mt-4 text-left transition-all duration-300 ease-in-out"
+>
+  <p
+    dangerouslySetInnerHTML={{
+      __html: expanded
+        ? anime.description
+        : anime.description?.slice(0, 300) + "..."
+    }}
+  />
+  {shouldTruncate && (
+    <div className="text-right mt-2">
+    <button
+      onClick={() => {
+        setExpanded(!expanded);
+        setTimeout(() => {
+          descriptionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }}
+      className="read-more"
+    >
+      {expanded ? "Show less" : "Read more"}
+    </button>
+    </div>
+  )}
+</div>
+
       </div>
       <div className="flex flex-row sm:flex-row gap-4 mt-6">
         <button
