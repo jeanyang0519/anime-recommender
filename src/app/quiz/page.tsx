@@ -60,8 +60,8 @@ export default function QuizPage() {
   if (recommendations) {
     return (
       <div className="p-8 max-w-3xl mx-auto text-center">
-        <h1 className="text-4xl font-extrabold mb-6 tracking-tight">🍿 Your Anime Watchlist Awaits</h1>
-        <p className="text-lg text-gray-200 mb-8">Based on your vibe check, here's what you should absolutely be watching next:</p>
+        <h1 className="text-4xl font-extrabold mb-6">🍿 Your Anime Watchlist Awaits</h1>
+        <p className="text-lg mb-8">Based on your vibe check, here's what you should absolutely be watching next:</p>
         <div className="flex overflow-x-auto items-start gap-6 mb-8 px-4 pb-8 w-full">
           {recommendations.map((anime, index) => (
             <div
@@ -84,15 +84,15 @@ export default function QuizPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <button
             onClick={restartQuiz}
-            className="px-6 py-3 rounded-full bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow-md"
+            className="px-6 py-3 rounded-full bg-yellow-600 hover:bg-pink-700 text-white font-semibold shadow-md"
           >
             🔁 Take Quiz Again
           </button>
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md text-center"
+            className="btn-yellow"
           >
-            ⬅️ Back to Home
+            ⬅Back to Home
           </Link>
         </div>
       </div>
@@ -105,28 +105,28 @@ export default function QuizPage() {
 
   return (
     <div className="p-8 max-w-2xl mx-auto text-center">
-      <h1 className="text-4xl font-extrabold mb-4 tracking-tight">🎬 What Should You Watch Next?</h1>
-      <p className="text-lg text-gray-300 mb-8">10 chaotic questions to unlock your next anime obsession.</p>
+      <h1 className="text-4xl font-extrabold mb-4">🎬 What Should You Watch Next?</h1>
+      <p className="text-lg mb-8">10 chaotic questions to unlock your next anime obsession.</p>
       <p className="text-xl font-medium mb-6">{q.question}</p>
       <div className="flex flex-col gap-4">
         {q.options.map((option, i) => (
           <button
             key={i}
             onClick={() => handleAnswer(option)}
-            className="w-64 mx-auto bg-purple-600 text-white py-3 px-6 rounded-full hover:bg-purple-700 transition-all shadow-md cursor-pointer"
+            className="option-yellow"
           >
             {option.label}
           </button>
         ))}
       </div>
-      <p className="mt-6 text-sm text-gray-400">
+      <p className="mt-6 mb-10 text-sm text-gray-400">
         Question {current + 1} of {shuffledQuestions.length}
       </p>
       <Link
         href="/"
-        className="inline-block mt-6 px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md"
+        className="btn-yellow"
       >
-        ⬅️ Back to Home
+        Back to Home
       </Link>
     </div>
   );

@@ -11,15 +11,15 @@ export default function HomePage() {
       </p>
 
       <div className="flex flex-col gap-6 w-full max-w-xs">
-        <Link href="/random" className="border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center">
+        <Link href="/random" className="option-yellow">
           🎲 Random Pick
         </Link>
 
-        <Link href="/quiz" className="border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center">
+        <Link href="/quiz" className="option-yellow">
           🧠 Take the Quiz
         </Link>
 
-        <Link href="/elite" className="border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center">
+        <Link href="/elite" className="option-yellow">
           🌟 Elite Picks
         </Link>
       </div>

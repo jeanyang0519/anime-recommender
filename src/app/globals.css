@@ -16,6 +16,15 @@ h1 {
   @apply tracking-wide;
 }
 
+.btn-yellow {
+  @apply cursor-pointer bg-yellow-100 hover:bg-yellow-300 text-black px-6 py-3 rounded-full font-semibold border-2 transition-all;
+}
+
+.option-yellow {
+  @apply border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center
+}
+
+
 /* body {
   background: var(--background);
   color: black;
