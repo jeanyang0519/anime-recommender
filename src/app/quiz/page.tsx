@@ -69,7 +69,13 @@ export default function QuizPage() {
               key={index}
               className="w-full shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
             >
-              <h2 className="text-2xl font-semibold mb-2">{anime.title.romaji}</h2>
+              <h2 className="text-2xl font-semibold mb-2">
+                {anime.title.romaji}
+                {anime.title.native && (
+                    <span className="block text-sm text-gray-500">({anime.title.native})</span>
+                )}
+              </h2>
+
               <img
                 src={anime.coverImage.large}
                 alt={anime.title.romaji}
