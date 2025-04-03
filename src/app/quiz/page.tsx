@@ -124,7 +124,7 @@ export default function QuizPage() {
               <img
                 src={anime.coverImage.large}
                 alt={anime.title.romaji}
-                className="w-48 mx-auto rounded-lg"
+                className="w-48 mx-auto rounded-lg mb-5 mt-3"
               />
               <div className="relative flex-1">
                 <p
@@ -134,7 +134,7 @@ export default function QuizPage() {
                   dangerouslySetInnerHTML={{
                     __html: expandedMap[index]
                       ? anime.description
-                      : anime.description?.slice(0, 500) + "...",
+                      : anime.description?.slice(0, 200) + "...",
                   }}
                 />
                 {!expandedMap[index] && (
