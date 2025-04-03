@@ -5,7 +5,9 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-10 p-8 text-center">
-      <h1 className="text-4xl font-extrabold">Let me help you pick your next anime to watch</h1>
+      <h1 className="text-4xl font-extrabold">
+        Let me help you pick your next anime to watch
+      </h1>
       <p className="text-lg text-gray-600 max-w-xl">
         These picks will help. Or hurt. I don’t know. Good luck.
       </p>

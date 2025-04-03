@@ -23,8 +23,8 @@ export async function fetchAnimeByGenres(genres: string[]): Promise<any[]> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query,
-      variables: { genres }
-    })
+      variables: { genres },
+    }),
   });
 
   const json = await response.json();
@@ -54,12 +54,12 @@ export async function fetchAnimeBySearch(search: string): Promise<any[]> {
   const response = await fetch(ANILIST_API, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query,
-      variables: { search }
-    })
+      variables: { search },
+    }),
   });
 
   const json = await response.json();

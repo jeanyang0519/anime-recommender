@@ -21,15 +21,15 @@ h1 {
 }
 
 .option-yellow {
-  @apply border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center
+  @apply border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center;
 }
 
 .card {
-  @apply bg-white text-black p-6 rounded-4xl shadow-md border-2 border-black
+  @apply bg-white text-black p-6 rounded-4xl shadow-md border-2 border-black;
 }
 
 .read-more {
-  @apply mt-2 text-sm underline cursor-pointer
+  @apply mt-2 text-sm underline cursor-pointer;
 }
 
 body {

@@ -38,6 +38,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(animeList.slice(0, 3));
   } catch (error) {
     console.error("Recommendation error:", error);
-    return NextResponse.json({ error: "Failed to generate recommendations" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to generate recommendations" },
+      { status: 500 },
+    );
   }
 }
