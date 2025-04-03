@@ -67,7 +67,7 @@ export default function QuizPage() {
           {recommendations.map((anime, index) => (
             <div
               key={index}
-              className="w-full shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
+              className="card w-full shrink-0 snap-center"
             >
               <h2 className="text-2xl font-semibold mb-2">
                 {anime.title.romaji}
@@ -82,7 +82,7 @@ export default function QuizPage() {
                 className="w-48 mx-auto rounded-lg"
               />
               <p
-                className="text-sm mt-4"
+                className="text-base mt-4 text-left"
                 dangerouslySetInnerHTML={{ __html: anime.description}}
               />
             </div>

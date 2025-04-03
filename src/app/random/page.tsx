@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
+import { fallbackAnime } from "../data/fallbackAnime";
 
 export default function RandomPick() {
   const [anime, setAnime] = useState<any | null>(null);
@@ -19,21 +20,13 @@ export default function RandomPick() {
         const randomAnime = results[Math.floor(Math.random() * results.length)];
         setAnime(randomAnime);
       } else {
-        // fallback anime: Skip and Loafer
-        setAnime({
-          title: { romaji: "Skip and Loafer" },
-          coverImage: { large: "/images/skip-and-loafer.jpg" },
-          description: "Iwakura Mitsumi is a smart and ambitious girl from a small town, ready to make her mark in the big city. But nothing goes quite as planned... and high school life gets unexpectedly awkward, heartwarming, and hilarious."
-        });
+        const fallback = fallbackAnime[Math.floor(Math.random() * fallbackAnime.length)];
+        setAnime(fallback);
       }
     } catch (err) {
       console.error("Failed to fetch random anime:", err);
-      // fallback anime on error too
-      setAnime({
-        title: { romaji: "Skip and Loafer" },
-        coverImage: { large: "/images/skip-and-loafer.jpg" },
-        description: "Iwakura Mitsumi is a smart and ambitious girl from a small town, ready to make her mark in the big city. But nothing goes quite as planned... and high school life gets unexpectedly awkward, heartwarming, and hilarious."
-      });
+      const fallback = fallbackAnime[Math.floor(Math.random() * fallbackAnime.length)];
+      setAnime(fallback);
     } finally {
       setLoading(false);
     }
@@ -48,20 +41,37 @@ export default function RandomPick() {
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center justify-center gap-6">
       <h1 className="text-3xl font-bold">🎲 Your Random Anime Pick</h1>
-      <div className="w-80 bg-white bg-opacity-90 text-black p-6 rounded-2xl shadow-md border border-gray-300">
-        <h2 className="text-2xl font-semibold mb-2">{anime.title.romaji}</h2>
-        <img src={anime.coverImage.large} alt={anime.title.romaji} className="w-48 mx-auto rounded-lg" />
-        <p className="text-sm mt-4" dangerouslySetInnerHTML={{ __html: anime.description?.slice(0, 300) + '...' }} />
+      <div className="card w-full max-w-2xl mx-auto">
+        <h2 className="text-2xl font-semibold mb-2">
+          {anime.title.romaji}
+          {anime.title.native && (
+            <span className="block text-sm text-gray-500">({anime.title.native})</span>
+          )}
+        </h2>
+        <img
+          src={anime.coverImage.large}
+          alt={anime.title.romaji}
+          className="w-48 mx-auto rounded-lg"
+        />
+        <p
+          className="text-base mt-4 text-left"
+          dangerouslySetInnerHTML={{
+            __html: anime.description
+          }}
+        />
       </div>
-      <div className="flex gap-4 mt-6">
+      <div className="flex flex-row sm:flex-row gap-4 mt-6">
         <button
           onClick={getRandom}
-          className="px-6 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-semibold shadow-md"
+          className="btn-yellow "
         >
-          🔁 Generate Again
+          Generate Again
         </button>
-        <Link href="/" className="px-6 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md">
-          ⬅️ Back to Home
+        <Link
+          href="/"
+          className="btn-yellow "
+        >
+          Back to Home
         </Link>
       </div>
     </div>
