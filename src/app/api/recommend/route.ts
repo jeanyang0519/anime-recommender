@@ -21,7 +21,13 @@ export async function POST(req: NextRequest) {
     // Fetch anime using top 3 genres
     const topGenres = sortedGenres.slice(0, 3);
     const animeList = await fetchAnimeByGenres(topGenres);
-
+    if (animeList.length < 3) {
+        animeList.push({
+          title: { romaji: "Skip and Loafer" },
+          coverImage: { large: "https://cdn.myanimelist.net/images/anime/1508/134773.jpg" },
+          description: "Iwakura Mitsumi is a smart and ambitious girl from a small town, ready to make her mark in the big city. But nothing goes quite as planned..."
+        });
+    }
     return NextResponse.json(animeList.slice(0, 3));
   } catch (error) {
     console.error("Recommendation error:", error);
