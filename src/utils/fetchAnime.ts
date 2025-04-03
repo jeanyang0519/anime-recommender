@@ -39,6 +39,8 @@ export async function fetchAnimeBySearch(search: string): Promise<any[]> {
           id
           title {
             romaji
+            english
+            native
           }
           coverImage {
             large

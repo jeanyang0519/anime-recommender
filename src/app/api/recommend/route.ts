@@ -1,21 +1,43 @@
-export const fallbackAnime = [
-    {
-      title: "Oblivion Battery",
-      originalTitle: "失憶投捕",
-      description: "A former baseball prodigy reunites with his genius catcher after losing his memories, chasing their dream of competitive baseball.",
-      image: "/images/oblivion-battery.jpg",
-    },
-    {
-      title: "Delicious in Dungeon",
-      originalTitle: "迷宮飯",
-      description: "A quirky adventuring party explores a dungeon and cooks monsters along the way to save a kidnapped sister.",
-      image: "/images/delicious-in-dungeon.jpg",
-    },
-    {
-      title: "Skip and Loafer",
-      originalTitle: "スキップとローファー",
-      description: "A small-town girl with big dreams moves to Tokyo for high school, where she befriends a laid-back classmate. A wholesome and heartfelt coming-of-age story about friendship, identity, and growing up.",
-      image: "/images/skip-and-loafer.jpg",
-    },
-  ];
-  
+import { NextRequest, NextResponse } from "next/server";
+import { fetchAnimeByGenres } from "../../../utils/fetchAnime";
+import { fallbackAnime } from "../../data/fallbackAnime";
+
+export async function POST(req: NextRequest) {
+  try {
+    const { answers } = await req.json();
+
+    // Get list of genres from answers
+    const allGenres = answers.map((a: { genre: string }) => a.genre);
+
+    // Count genre frequencies and sort by most picked
+    const genreCounts: Record<string, number> = {};
+    allGenres.forEach((genre: string) => {
+      genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+    });
+
+    const sortedGenres = Object.entries(genreCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([genre]) => genre);
+
+    // Fetch anime using top 3 genres
+    const topGenres = sortedGenres.slice(0, 3);
+    const animeList = await fetchAnimeByGenres(topGenres);
+
+    // Ensure we always return 3
+    const result: any[] = [...animeList.slice(0, 3)];
+
+    if (result.length < 3) {
+      const missing = 3 - result.length;
+
+      // pick from fallbackAnime to fill
+      const fallbackToAdd = fallbackAnime.slice(0, missing);
+      result.push(...fallbackToAdd);
+    }
+
+    return NextResponse.json(result.slice(0, 3));
+    return NextResponse.json(animeList.slice(0, 3));
+  } catch (error) {
+    console.error("Recommendation error:", error);
+    return NextResponse.json({ error: "Failed to generate recommendations" }, { status: 500 });
+  }
+}
