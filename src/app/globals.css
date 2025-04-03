@@ -12,6 +12,10 @@
   }
 }
 
+h1 {
+  @apply tracking-wide;
+}
+
 /* body {
   background: var(--background);
   color: black;

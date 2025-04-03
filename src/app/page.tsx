@@ -59,20 +59,20 @@ export default function HomePage() {
   if (recommendations) {
     return (
       <div className="p-8 max-w-full mx-auto text-center">
-        <h1 className="text-4xl font-extrabold mb-6 tracking-tight">✨ This is meant to be ✨</h1>
-        <p className="text-lg mb-8">These are the anime the universe (and your choices) screamed at us to show you:</p>
+        <h1 className="text-4xl font-extrabold mb-6">✨ This is meant to be ✨</h1>
+        <p className="text-lg mb-8">These are the anime the universe (and your choices) screamed at me to show you:</p>
         <div className="overflow-x-auto w-full px-4 pb-8">
         <div className="flex gap-6 snap-x snap-mandatory justify-center w-fit mx-auto">
           {recommendations.map((anime, index) => (
             <div
               key={index}
-              className="w-80 shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
+              className="w-100 shrink-0 snap-center bg-yellow-50 text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
             >
-              <h2 className="text-2xl font-semibold mb-2">{anime.title.romaji}</h2>
+              <h2 className="text-2xl font-semibold mb-6">{anime.title.romaji}</h2>
               <img
                 src={anime.coverImage.large}
                 alt={anime.title.romaji}
-                className="w-48 mx-auto rounded-lg"
+                className="w-48 mx-auto rounded-lg mb-8"
               />
               <p
                 className="text-base text-left mt-4"
@@ -91,7 +91,7 @@ export default function HomePage() {
 
         <button
           onClick={restartQuiz}
-          className="border-2 mt-6 px-6 py-3 rounded-full bg-yellow-100 hover:bg-yellow-250 text-black font-semibold shadow-md"
+          className="border-2 cursor-pointer mt-6 px-6 py-3 rounded-full bg-yellow-100 hover:bg-yellow-250 text-black font-semibold"
         >
           Back to home
         </button>
@@ -105,15 +105,15 @@ export default function HomePage() {
 
   return (
     <div className="p-4 mx-auto text-center">
-      <h1 className="text-4xl font-extrabold mb-4 tracking-tight">Let me help you pick your next anime to watch</h1>
-      <p className="text-lg mb-8">These picks will help. Or hurt. I don’t know. Good luck.</p>
+      <h1 className="text-4xl font-extrabold mb-5 mt-10">Let me help you pick your next anime to watch</h1>
+      <p className="text-xl  mb-20">These picks will help. Or hurt. I don’t know. Good luck.</p>
       <p className="text-xl font-medium mb-6">{q.question}</p>
       <div className="w-100 mx-auto flex flex-col gap-4">
         {q.options.map((option, i) => (
           <button
             key={i}
             onClick={() => handleAnswer(option)}
-            className="bg-blue-100 text-black py-3 px-6 rounded-full hover:bg-blue-400 transition-all shadow-md"
+            className="border bg-yellow-100 cursor-pointer py-3 px-6 rounded-full hover:bg-yellow-300 transition-all shadow-md"
           >
             {option.label}
           </button>
