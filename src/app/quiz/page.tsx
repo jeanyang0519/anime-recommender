@@ -111,7 +111,10 @@ export default function QuizPage() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch min-h-0">
           {recommendations.map((anime, index) => (
-            <div key={index} className="card transition-all duration-300 ease-in-out w-full h-full flex flex-col">
+            <div
+              key={index}
+              className="card transition-all duration-300 ease-in-out w-full h-full flex flex-col"
+            >
               <h2 className="text-2xl font-semibold mb-2">
                 {anime.title.romaji}
                 {anime.title.native && (
