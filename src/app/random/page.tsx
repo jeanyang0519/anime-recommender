@@ -22,7 +22,7 @@ export default function RandomPick() {
         // fallback anime: Skip and Loafer
         setAnime({
           title: { romaji: "Skip and Loafer" },
-          coverImage: { large: "https://cdn.myanimelist.net/images/anime/1508/134773.jpg" },
+          coverImage: { large: "/images/skip-and-loafer.jpg" },
           description: "Iwakura Mitsumi is a smart and ambitious girl from a small town, ready to make her mark in the big city. But nothing goes quite as planned... and high school life gets unexpectedly awkward, heartwarming, and hilarious."
         });
       }
@@ -31,7 +31,7 @@ export default function RandomPick() {
       // fallback anime on error too
       setAnime({
         title: { romaji: "Skip and Loafer" },
-        coverImage: { large: "https://cdn.myanimelist.net/images/anime/1508/134773.jpg" },
+        coverImage: { large: "/images/skip-and-loafer.jpg" },
         description: "Iwakura Mitsumi is a smart and ambitious girl from a small town, ready to make her mark in the big city. But nothing goes quite as planned... and high school life gets unexpectedly awkward, heartwarming, and hilarious."
       });
     } finally {

@@ -59,14 +59,15 @@ export default function QuizPage() {
 
   if (recommendations) {
     return (
-      <div className="p-8 max-w-3xl mx-auto text-center">
+      <div className="p-8 max-w-7xl mx-auto text-center">
         <h1 className="text-4xl font-extrabold mb-6">🍿 Your Anime Watchlist Awaits</h1>
         <p className="text-lg mb-8">Based on your vibe check, here's what you should absolutely be watching next:</p>
-        <div className="flex overflow-x-auto items-start gap-6 mb-8 px-4 pb-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 mb-12 w-full">
+
           {recommendations.map((anime, index) => (
             <div
               key={index}
-              className="w-80 shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
+              className="w-full shrink-0 snap-center bg-white text-black bg-opacity-80 p-6 rounded-2xl shadow-md border border-white/20"
             >
               <h2 className="text-2xl font-semibold mb-2">{anime.title.romaji}</h2>
               <img
@@ -84,15 +85,15 @@ export default function QuizPage() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <button
             onClick={restartQuiz}
-            className="px-6 py-3 rounded-full bg-yellow-600 hover:bg-pink-700 text-white font-semibold shadow-md"
+            className="btn-yellow"
           >
-            🔁 Take Quiz Again
+            Take Quiz Again
           </button>
           <Link
             href="/"
             className="btn-yellow"
           >
-            ⬅Back to Home
+            Back to Home
           </Link>
         </div>
       </div>
