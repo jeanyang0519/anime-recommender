@@ -1,7 +1,7 @@
 export const jeansList = [
   // === Touching/Emotional ===
   {
-    category: "Touching/Emotional",
+    category: "Slice of life",
     title: {
       romaji: "Sousou no Frieren",
       english: "Frieren: Beyond Journey’s End",
@@ -16,7 +16,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Touching/Emotional",
+    category: "Slice of life",
     title: {
       romaji: "Skip to Loafer",
       english: "Skip and Loafer",
@@ -433,9 +433,9 @@ export const jeansList = [
     tier: "A",
   },
 
-  // === Shonen B ===
+  
   {
-    category: "Shonen B",
+    category: "Shonen",
     title: {
       romaji: "Jigokuraku",
       english: "Hell's Paradise",
@@ -450,7 +450,7 @@ export const jeansList = [
     tier: "B",
   },
   {
-    category: "Shonen B",
+    category: "Shonen",
     title: {
       romaji: "Paripi Koumei",
       english: "Ya Boy Kongming!",

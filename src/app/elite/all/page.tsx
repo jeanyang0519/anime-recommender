@@ -5,129 +5,169 @@ import { jeansList } from "../../data/jeansList";
 import { useState, useEffect, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-
 export default function EliteFullList() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedTiers, setSelectedTiers] = useState<string[]>([]);
   const [showTierDropdown, setShowTierDropdown] = useState(false);
-const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
 
-const tierRef = useRef<HTMLDivElement>(null);
-const categoryRef = useRef<HTMLDivElement>(null);
+  const tierRef = useRef<HTMLDivElement>(null);
+  const categoryRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (tierRef.current && !tierRef.current.contains(event.target as Node)) {
+        setShowTierDropdown(false);
+      }
+      if (
+        categoryRef.current &&
+        !categoryRef.current.contains(event.target as Node)
+      ) {
+        setShowCategoryDropdown(false);
+      }
+    };
 
-useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      tierRef.current &&
-      !tierRef.current.contains(event.target as Node)
-    ) {
-      setShowTierDropdown(false);
-    }
-    if (
-      categoryRef.current &&
-      !categoryRef.current.contains(event.target as Node)
-    ) {
-      setShowCategoryDropdown(false);
-    }
-  };
-
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
       <h1 className="text-4xl font-bold">📚 Jean’s Anime List</h1>
       <p className="text-lg mb-8">Curated with love and care </p>
       <div className="flex flex-wrap justify-start items-center gap-4 mb-4 w-full max-w-6xl px-6">
-  {/* Tier Filter */}
-  <div className="relative" ref={tierRef}>
-    <button
-      onClick={() => setShowTierDropdown(prev => !prev)}
-      className="btn-yellow text-sm px-4 py-2 flex items-center gap-2"
-    >
-      Tier {selectedTiers.length > 0 && `(${selectedTiers.length})`}
-      <ChevronDownIcon
-        className={`w-4 h-4 transition-transform ${
-          showTierDropdown ? "rotate-180" : ""
-        }`}
-      />
-    </button>
-    {showTierDropdown && (
-      <div className="absolute z-10 mt-2 bg-white text-black rounded shadow-md p-2 w-40">
-        {[...new Set(jeansList.map(a => a.tier).filter(Boolean))].map((tier, i) => (
-          <label key={i} className="block text-sm">
-            <input
-              type="checkbox"
-              value={tier}
-              checked={selectedTiers.includes(tier)}
-              onChange={(e) => {
-                const checked = e.target.checked;
-                setSelectedTiers(prev =>
-                  checked ? [...prev, tier] : prev.filter(t => t !== tier)
-                );
-              }}
-              className="mr-2"
+        {/* Tier Filter */}
+        <div className="relative" ref={tierRef}>
+          <button
+            onClick={() => setShowTierDropdown((prev) => !prev)}
+            className="filter-btn"
+          >
+            Tier {selectedTiers.length > 0 && (
+                <span className="count"
+                style={{ fontSize: "9px" }}>
+                {selectedTiers.length}
+              </span>
+            )}
+            <ChevronDownIcon
+              className={`w-4 h-4 transition-transform ${
+                showTierDropdown ? "rotate-180" : ""
+              }`}
             />
-            {tier}
-          </label>
-        ))}
-      </div>
-    )}
-  </div>
+          </button>
+          {showTierDropdown && (
+            <div className="dropdown w-48">
+            <div className="flex flex-col">
+              <label className="dropdown-label">
+                <input
+                  type="checkbox"
+                  className="mr-2"
+                  checked={selectedTiers.length === [...new Set(jeansList.map((a) => a.tier).filter(Boolean))].length}
+                  onChange={(e) => {
+                    const allTiers = [...new Set(jeansList.map((a) => a.tier).filter(Boolean))];
+                    setSelectedTiers(e.target.checked ? allTiers : []);
+                  }}
+                />
+                Select All
+              </label>
+              {[...new Set(jeansList.map((a) => a.tier).filter(Boolean))].map((tier, i) => (
+                <label
+                  key={i}
+                  className="dropdown-label"
+                >
+                  <input
+                    type="checkbox"
+                    value={tier}
+                    checked={selectedTiers.includes(tier)}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setSelectedTiers((prev) =>
+                        checked ? [...prev, tier] : prev.filter((t) => t !== tier)
+                      );
+                    }}
+                    className="mr-2"
+                  />
+                  {tier}
+                </label>
+              ))}
+            </div>
+          </div>
+          
+          )}
+        </div>
 
-  {/* Category Filter */}
-  <div className="relative" ref={categoryRef}>
-    <button
-      onClick={() => setShowCategoryDropdown(prev => !prev)}
-      className="btn-yellow text-sm px-4 py-2 flex items-center gap-2"
-    >
-      Category {selectedCategories.length > 0 && `(${selectedCategories.length})`}
-      <ChevronDownIcon
-        className={`w-4 h-4 transition-transform ${
-          showCategoryDropdown ? "rotate-180" : ""
-        }`}
-      />
-    </button>
-    {showCategoryDropdown && (
-      <div className="absolute z-10 mt-2 bg-white text-black rounded shadow-md p-2 w-48">
-        {[...new Set(jeansList.flatMap(a => a.category || []))].map((cat, i) => (
-          <label key={i} className="block text-sm">
-            <input
-              type="checkbox"
-              value={cat}
-              checked={selectedCategories.includes(cat)}
-              onChange={(e) => {
-                const checked = e.target.checked;
-                setSelectedCategories(prev =>
-                  checked ? [...prev, cat] : prev.filter(c => c !== cat)
-                );
-              }}
-              className="mr-2"
+        {/* Category Filter */}
+        <div className="relative" ref={categoryRef}>
+          <button
+            onClick={() => setShowCategoryDropdown((prev) => !prev)}
+            className="filter-btn"
+          >
+            Category{" "}
+            {selectedCategories.length > 0 && (
+                <span className="count"
+                style={{ fontSize: "9px" }}>
+                {selectedCategories.length}
+              </span>
+            )}
+            <ChevronDownIcon
+              className={`w-4 h-4 transition-transform ${
+                showCategoryDropdown ? "rotate-180" : ""
+              }`}
             />
-            {cat}
-          </label>
-        ))}
+          </button>
+          {showCategoryDropdown && (
+            <div className="dropdown w-52">
+            <div className="flex flex-col">
+              <label className="dropdown-label">
+                <input
+                  type="checkbox"
+                  className="mr-2"
+                  checked={selectedCategories.length === [...new Set(jeansList.flatMap((a) => a.category || []))].length}
+                  onChange={(e) => {
+                    const allCategories = [...new Set(jeansList.flatMap((a) => a.category || []))];
+                    setSelectedCategories(e.target.checked ? allCategories : []);
+                  }}
+                />
+                Select All
+              </label>
+              {[...new Set(jeansList.flatMap((a) => a.category || []))].map((cat, i) => (
+                <label
+                  key={i}
+                  className="dropdown-label"
+                >
+                  <input
+                    type="checkbox"
+                    value={cat}
+                    checked={selectedCategories.includes(cat)}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setSelectedCategories((prev) =>
+                        checked ? [...prev, cat] : prev.filter((c) => c !== cat)
+                      );
+                    }}
+                    className="mr-2"
+                  />
+                  {cat}
+                </label>
+              ))}
+            </div>
+          </div>
+          
+          )}
+        </div>
+
+        {/* Clear Filter */}
+        <button
+          onClick={() => {
+            setSelectedCategories([]);
+            setSelectedTiers([]);
+          }}
+          className="filter-btn"
+        >
+          Clear Filter
+        </button>
       </div>
-    )}
-  </div>
-
-  {/* Clear Filter */}
-  <button
-    onClick={() => {
-      setSelectedCategories([]);
-      setSelectedTiers([]);
-    }}
-    className="btn-yellow text-sm px-4 py-2"
-  >
-    Clear Filter
-  </button>
-</div>
-
 
       <div className=" flex flex-col w-full max-w-6xl gap-4">
         <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">

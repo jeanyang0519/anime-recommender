@@ -32,6 +32,22 @@ h1 {
   @apply mt-2 text-sm underline cursor-pointer;
 }
 
+.filter-btn {
+  @apply cursor-pointer rounded transition-all border  hover:bg-gray-300 text-black px-3 py-1 text-sm flex items-center gap-2
+}
+
+.dropdown {
+  @apply absolute z-10 mt-2 bg-white text-black rounded text-left border border-gray-100
+}
+
+.dropdown-label {
+  @apply text-sm cursor-pointer px-3 py-2 hover:bg-gray-100 transition-colors
+}
+
+.count {
+  @apply inline-flex items-center justify-center rounded-full bg-blue-200 w-4 h-4 border
+}
+
 body {
   /* background: var(--background); */
   color: black;
