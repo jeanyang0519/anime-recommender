@@ -10,7 +10,80 @@ export default function EliteFullList() {
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
       <h1 className="text-4xl font-bold">📚 Jean’s Anime List</h1>
-      <p className="text-lg mb-8">Curated with love and care</p>
+      <p className="text-lg mb-8">Curated with love and care </p>
+      <div className="flex flex-wrap justify-start items-center gap-4 mb-4 w-full max-w-6xl px-6">
+        {/* Tier Filter */}
+        <div className="relative group">
+          <button className="btn-yellow text-sm px-4 py-2">
+            Tier {selectedTiers.length > 0 && `(${selectedTiers.length})`}
+          </button>
+          <div className="absolute z-10 mt-2 bg-white text-black rounded shadow-md p-2 hidden group-hover:block">
+            {[...new Set(jeansList.map((a) => a.tier).filter(Boolean))].map(
+              (tier, i) => (
+                <label key={i} className="block text-sm">
+                  <input
+                    type="checkbox"
+                    value={tier}
+                    checked={selectedTiers.includes(tier)}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setSelectedTiers((prev) =>
+                        checked
+                          ? [...prev, tier]
+                          : prev.filter((t) => t !== tier),
+                      );
+                    }}
+                    className="mr-2"
+                  />
+                  {tier}
+                </label>
+              ),
+            )}
+          </div>
+        </div>
+
+        {/* Category Filter */}
+        <div className="relative group">
+          <button className="btn-yellow text-sm px-4 py-2">
+            Category{" "}
+            {selectedCategories.length > 0 && `(${selectedCategories.length})`}
+          </button>
+          <div className="absolute z-10 mt-2 bg-white text-black rounded shadow-md p-2 hidden group-hover:block">
+            {[...new Set(jeansList.flatMap((a) => a.category || []))].map(
+              (cat, i) => (
+                <label key={i} className="block text-sm">
+                  <input
+                    type="checkbox"
+                    value={cat}
+                    checked={selectedCategories.includes(cat)}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setSelectedCategories((prev) =>
+                        checked
+                          ? [...prev, cat]
+                          : prev.filter((c) => c !== cat),
+                      );
+                    }}
+                    className="mr-2"
+                  />
+                  {cat}
+                </label>
+              ),
+            )}
+          </div>
+        </div>
+
+        {/* Clear Filters */}
+        <button
+          onClick={() => {
+            setSelectedCategories([]);
+            setSelectedTiers([]);
+          }}
+          className="btn-yellow text-sm px-4 py-2"
+        >
+          Clear Filter
+        </button>
+      </div>
 
       <div className=" flex flex-col w-full max-w-6xl gap-4">
         <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">
