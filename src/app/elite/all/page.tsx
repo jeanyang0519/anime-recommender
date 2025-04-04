@@ -49,11 +49,12 @@ export default function EliteFullList() {
   }, []);
 
   return (
-    <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
+    <div className="min-h-screen p-8 flex flex-col items-center gap-4">
       <h1 className="text-4xl font-bold">📚 Jean’s Anime List</h1>
       <p className="text-lg mb-8">Curated with love and care </p>
-      <div className="flex flex-wrap justify-start items-center gap-4 mb-4 w-full max-w-6xl px-6">
+      <div className="filter-container">
         {/* Tier Filter */}
+
         <div className="relative" ref={tierRef}>
           <button
             onClick={() => setShowTierDropdown((prev) => !prev)}
@@ -71,6 +72,7 @@ export default function EliteFullList() {
               }`}
             />
           </button>
+
           {showTierDropdown && (
             <div className="dropdown w-48">
               <div className="flex flex-col">
@@ -138,6 +140,7 @@ export default function EliteFullList() {
               }`}
             />
           </button>
+
           {showTagDropdown && (
             <div className="dropdown w-52">
               <div className="flex flex-col">
@@ -186,24 +189,25 @@ export default function EliteFullList() {
         </div>
 
         {/* Clear Filter */}
-        <button
-          onClick={() => {
-            setSelectedTags([]);
-            setSelectedTiers([]);
-          }}
-          className="filter-btn"
-        >
-          Clear Filter
-        </button>
+        <div className="relative">
+          <button
+            onClick={() => {
+              setSelectedTags([]);
+              setSelectedTiers([]);
+            }}
+            className="filter-btn"
+          >
+            Clear Filter
+          </button>
+        </div>
       </div>
 
       <div className="flex flex-col w-full max-w-6xl rounded-md ">
-      <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_70px_1fr] gap-6 px-6 py-4 text-left font-semibold text-gray-600 ">
-
+        <div className="hidden md:grid grid-cols-[1fr_150px_2fr_1fr_60px_1fr] gap-4 px-4 py-2 text-left font-semibold text-gray-600">
           <div>Title</div>
           <div>Image</div>
           <div>Description</div>
-          <div>Note</div>
+          <div>Jean's Note</div>
           <div>Tier</div>
           <div>Tags</div>
         </div>
@@ -214,9 +218,9 @@ export default function EliteFullList() {
         ) : (
           filteredList.map((anime, index) => (
             <div
-  key={index}
-  className="grid grid-cols-[1fr_170px_2fr_1fr_70px_1fr] gap-6 px-6 py-4 text-left items-start border-t border-gray-300 hover:bg-gray-100"
->
+              key={index}
+              className="grid md:grid-cols-[1fr_150px_2fr_1fr_60px_1fr] grid-cols-1 gap-4 px-4 py-4 border-t border-gray-300 hover:bg-gray-100"
+            >
               {/* Title */}
               <div className="font-bold text-lg">
                 {anime.title.english}
@@ -226,7 +230,7 @@ export default function EliteFullList() {
               </div>
 
               {/* Image */}
-              <div>
+              <div className="flex">
                 <img
                   src={anime.coverImage?.large || "/images/skip-and-loafer.jpg"}
                   alt={anime.title.english}
@@ -235,16 +239,22 @@ export default function EliteFullList() {
               </div>
 
               {/* Description */}
-              <div className="text-sm">{anime.description}</div>
+              <div className="text-sm leading-relaxed">{anime.description}</div>
 
               {/* Note */}
-              <div className="text-sm italic">{anime.note || "—"}</div>
+              <div className="text-sm">
+              <div className="block md:hidden font-semibold">Jean's Note:</div>
+                {anime.note || "—"}</div>
 
               {/* Tier */}
-              <div className="text-sm">{anime.tier || "—"}</div>
+              <div className="text-sm">
+              <div className="block md:hidden font-semibold">Tier:</div>
+                {anime.tier || "—"}
+              </div>
 
               {/* Tags */}
-              <div className="text-sm flex flex-wrap gap-1">
+              <div className="text-sm flex gap-2 overflow-x-auto whitespace-nowrap items-start max-w-full">
+              {/* <div className="block md:hidden font-semibold">Tags:</div> */}
                 {(anime.tags || []).map((tag, i) => {
                   const baseColor = getTagColor(tag);
                   const borderColor = darkenColor(baseColor, 15);
@@ -266,7 +276,11 @@ export default function EliteFullList() {
                       style={{
                         backgroundColor,
                         border: `2px solid ${borderColor}`,
-                        opacity: selectedTags.length === 0 || selectedTags.includes(tag) ? 1 : 0.4,
+                        opacity:
+                          selectedTags.length === 0 ||
+                          selectedTags.includes(tag)
+                            ? 1
+                            : 0.4,
                       }}
                     >
                       {tag}

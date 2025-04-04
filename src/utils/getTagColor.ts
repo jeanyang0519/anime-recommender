@@ -1,11 +1,11 @@
 const tagThemeColors: Record<string, string> = {
-    Action: "hsl(0, 70%, 92%)",
-    Adventure: "hsl(25, 85%, 92%)",
-    Romance: "hsl(330, 70%, 92%)",
-    "Slice of life": "hsl(199, 77%, 92%)",
-    Drama: "hsl(270, 70%, 92%)",
-    Comedy: "hsl(50, 85%, 92%)",
-    Fantasy: "hsl(140, 60%, 92%)",
+  Action: "hsl(0, 70%, 92%)",
+  Adventure: "hsl(25, 85%, 92%)",
+  Romance: "hsl(330, 70%, 92%)",
+  "Slice of life": "hsl(199, 77%, 92%)",
+  Drama: "hsl(270, 70%, 92%)",
+  Comedy: "hsl(50, 85%, 92%)",
+  Fantasy: "hsl(140, 60%, 92%)",
 };
 
 export function getTagColor(tag: string): string {

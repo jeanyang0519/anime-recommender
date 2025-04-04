@@ -18,9 +18,9 @@ export default function ElitePage() {
   };
 
   return (
-    <div className="min-h-screen p-8 text-center flex flex-col items-center gap-8">
-      <h1 className="text-4xl font-bold">🌟 Jean's Elite Picks</h1>
-      <p className="text-lg ">Carefully curated chaos just for you.</p>
+    <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
+      <h1 className="text-4xl font-bold">🌟 Jean's Picks</h1>
+      <p className="text-lg ">Carefully curated just for you</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch w-full max-w-6xl">
         {picks.map((anime, index) => (
@@ -59,7 +59,7 @@ export default function ElitePage() {
           📚 Show Full List
         </Link>
         <Link href="/" className="btn-yellow w-full sm:w-auto">
-          ⬅️ Back to Home
+          🏠 Back to Home
         </Link>
       </div>
     </div>

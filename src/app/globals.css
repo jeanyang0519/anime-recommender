@@ -29,6 +29,10 @@ h1 {
   @apply border-2 cursor-pointer py-3 px-6 rounded-full bg-yellow-100 hover:bg-yellow-200 text-black font-semibold text-lg text-center;
 }
 
+.quiz-option {
+  @apply cursor-pointer py-3 px-6 rounded-full border-8 border-blue-200 bg-blue-100 hover:bg-blue-200 text-black font-semibold text-lg text-center;
+}
+
 .card {
   @apply bg-white text-black p-6 rounded-4xl shadow-md border-2 border-black;
 }
@@ -38,8 +42,20 @@ h1 {
 }
 
 .filter-btn {
-  @apply cursor-pointer rounded transition-all border  hover:bg-gray-300 text-black px-3 py-1 text-sm flex items-center gap-2;
+  @apply cursor-pointer rounded w-fit transition-all border hover:bg-gray-300 text-black px-3 py-1 text-sm flex items-center gap-2;
 }
+
+@media (max-width: 640px) {
+  .filter-btn {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.filter-container {
+  @apply flex flex-row sm:flex-row gap-2 w-full max-w-6xl  mb-4;
+}
+
 
 .dropdown {
   @apply absolute z-10 mt-2 bg-white text-black rounded text-left border border-gray-100;

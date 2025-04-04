@@ -160,10 +160,10 @@ export default function QuizPage() {
         </div>
         <div className="flex flex-row sm:flex-row gap-4 justify-center mt-6">
           <button onClick={restartQuiz} className="btn-yellow">
-            Take Quiz Again
+            🔁 Try Again
           </button>
           <Link href="/" className="btn-yellow">
-            Back to Home
+            🏠 Back to Home
           </Link>
         </div>
       </div>
@@ -176,20 +176,18 @@ export default function QuizPage() {
   const q = shuffledQuestions[current];
 
   return (
-    <div className="p-8 max-w-2xl mx-auto text-center">
+    <div className="p-8 max-w-auto mx-auto text-center">
       <h1 className="text-4xl font-extrabold mb-4">
-        🎬 What Should You Watch Next?
+        🪄 Make your choice and see what unfolds
       </h1>
-      <p className="text-lg mb-8">
-        10 chaotic questions to unlock your next anime obsession.
-      </p>
+
       <p className="text-xl font-medium mb-6">{q.question}</p>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 items-center">
         {q.options.map((option, i) => (
           <button
             key={i}
             onClick={() => handleAnswer(option)}
-            className="option-yellow"
+            className="quiz-option w-100 "
           >
             {option.label}
           </button>
@@ -198,9 +196,11 @@ export default function QuizPage() {
       <p className="mt-6 mb-10 text-sm text-gray-400">
         Question {current + 1} of {shuffledQuestions.length}
       </p>
-      <Link href="/" className="btn-yellow">
-        Back to Home
-      </Link>
+      <div>
+        <Link href="/" className="btn-yellow">
+          🏠 Back to Home
+        </Link>
+      </div>
     </div>
   );
 }
