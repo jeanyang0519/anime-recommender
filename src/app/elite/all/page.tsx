@@ -13,6 +13,17 @@ export default function EliteFullList() {
 
   const tierRef = useRef<HTMLDivElement>(null);
   const categoryRef = useRef<HTMLDivElement>(null);
+  const filteredList = jeansList.filter((anime) => {
+    const inSelectedCategory =
+      selectedCategories.length === 0 ||
+      (anime.category && selectedCategories.some((cat) => anime.category.includes(cat)));
+  
+    const inSelectedTier =
+      selectedTiers.length === 0 || (anime.tier && selectedTiers.includes(anime.tier));
+  
+    return inSelectedCategory && inSelectedTier;
+  });
+  
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -177,50 +188,45 @@ export default function EliteFullList() {
           <div>Note</div>
           <div>Tier</div>
         </div>
-        {jeansList
-          .filter((anime) => {
-            const inSelectedCategory =
-              selectedCategories.length === 0 ||
-              (anime.category &&
-                selectedCategories.some((cat) => anime.category.includes(cat)));
+        {filteredList.length === 0 ? (
+  <p className="text-gray-400 text-sm text-left px-6 mt-4">
+    😢 No anime found with the selected filters. Try changing them up!
+  </p>
+) : (
+  filteredList.map((anime, index) => (
+    <div
+      key={index}
+      className="grid grid-cols-1 lg:grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 p-6 rounded-xl text-left"
+    >
+      {/* Title */}
+      <div className="font-bold text-lg">
+        {anime.title.english}
+        {anime.title.native && (
+          <div className="text-sm">({anime.title.native})</div>
+        )}
+      </div>
 
-            const inSelectedTier =
-              selectedTiers.length === 0 ||
-              (anime.tier && selectedTiers.includes(anime.tier));
+      {/* Image */}
+      <div>
+        <img
+          src={anime.coverImage?.large || "/images/skip-and-loafer.jpg"}
+          alt={anime.title.english}
+          className="w-30 rounded-lg"
+        />
+      </div>
 
-            return inSelectedCategory && inSelectedTier;
-          })
-          .map((anime, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-1 lg:grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 p-6  rounded-xl text-left"
-            >
-              {/* Title */}
-              <div className="font-bold text-lg">
-                {anime.title.english}
-                {anime.title.native && (
-                  <div className="text-sm ">({anime.title.native})</div>
-                )}
-              </div>
+      {/* Description */}
+      <div className="text-sm">{anime.description}</div>
 
-              {/* Image */}
-              <div>
-                <img
-                  src={anime.coverImage?.large || "/images/skip-and-loafer.jpg"}
-                  alt={anime.title.english}
-                  className="w-30 rounded-lg"
-                />
-              </div>
+      {/* Note */}
+      <div className="text-sm italic">{anime.note || "—"}</div>
 
-              {/* Description */}
-              <div className="text-sm ">{anime.description}</div>
+      {/* Tier */}
+      <div className="text-sm">{anime.tier || "—"}</div>
+    </div>
+  ))
+)}
 
-              {/* Note */}
-              <div className="text-sm  italic">{anime.note || "—"}</div>
-              {/* Tier */}
-              <div className="text-sm  ">{anime.tier || "—"}</div>
-            </div>
-          ))}
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6">
