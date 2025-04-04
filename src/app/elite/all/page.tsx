@@ -4,6 +4,7 @@ import Link from "next/link";
 import { jeansList } from "../../data/jeansList";
 import { useState, useEffect, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { getTagColor, darkenColor } from "../../../utils/getTagColor";
 
 export default function EliteFullList() {
   const [selectedTiers, setSelectedTiers] = useState<string[]>([]);
@@ -73,7 +74,7 @@ export default function EliteFullList() {
           {showTierDropdown && (
             <div className="dropdown w-48">
               <div className="flex flex-col">
-                <label className="dropdown-label">
+                <label className="dropdown-label border-b border-gray-100">
                   <input
                     type="checkbox"
                     className="mr-2"
@@ -140,7 +141,7 @@ export default function EliteFullList() {
           {showTagDropdown && (
             <div className="dropdown w-52">
               <div className="flex flex-col">
-                <label className="dropdown-label">
+                <label className="dropdown-label border-b border-gray-100">
                   <input
                     type="checkbox"
                     className="mr-2"
@@ -196,8 +197,9 @@ export default function EliteFullList() {
         </button>
       </div>
 
-      <div className=" flex flex-col w-full max-w-6xl gap-4">
-        <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px_1fr] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">
+      <div className="flex flex-col w-full max-w-6xl rounded-md ">
+      <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_70px_1fr] gap-6 px-6 py-4 text-left font-semibold text-gray-600 ">
+
           <div>Title</div>
           <div>Image</div>
           <div>Description</div>
@@ -212,9 +214,9 @@ export default function EliteFullList() {
         ) : (
           filteredList.map((anime, index) => (
             <div
-              key={index}
-              className="grid grid-cols-1 grid grid-cols-[1fr_170px_2fr_1fr_50px_1fr] gap-6 p-6 rounded-xl text-left"
-            >
+  key={index}
+  className="grid grid-cols-[1fr_170px_2fr_1fr_70px_1fr] gap-6 px-6 py-4 text-left items-start border-t border-gray-300 hover:bg-gray-100"
+>
               {/* Title */}
               <div className="font-bold text-lg">
                 {anime.title.english}
@@ -241,28 +243,36 @@ export default function EliteFullList() {
               {/* Tier */}
               <div className="text-sm">{anime.tier || "—"}</div>
 
-                {/* Tags */}
+              {/* Tags */}
               <div className="text-sm flex flex-wrap gap-1">
-                {(anime.tags || []).map((tag, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setSelectedTags((prev) =>
-                        prev.includes(tag)
-                          ? prev.filter((t) => t !== tag)
-                          : [...prev, tag],
-                      );
-                    }}
-                    className={`text-xs px-2 py-1 rounded-full transition-colors cursor-pointer
-        ${
-          selectedTags.includes(tag)
-            ? "bg-yellow-400 text-black"
-            : "bg-yellow-100 text-black"
-        }`}
-                  >
-                    {tag}
-                  </button>
-                ))}
+                {(anime.tags || []).map((tag, i) => {
+                  const baseColor = getTagColor(tag);
+                  const borderColor = darkenColor(baseColor, 15);
+                  const backgroundColor = selectedTags.includes(tag)
+                    ? darkenColor(baseColor, 10)
+                    : baseColor;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setSelectedTags((prev) =>
+                          prev.includes(tag)
+                            ? prev.filter((t) => t !== tag)
+                            : [...prev, tag],
+                        );
+                      }}
+                      title={`Filter by ${tag}`}
+                      className="text-xs px-2 py-1 rounded-full transition-colors cursor-pointer w-fit"
+                      style={{
+                        backgroundColor,
+                        border: `2px solid ${borderColor}`,
+                        opacity: selectedTags.length === 0 || selectedTags.includes(tag) ? 1 : 0.4,
+                      }}
+                    >
+                      {tag}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))
