@@ -125,7 +125,7 @@ export default function EliteFullList() {
             onClick={() => setShowTagDropdown((prev) => !prev)}
             className="filter-btn"
           >
-            Tag{" "}
+            Tags{" "}
             {selectedTags.length > 0 && (
               <span className="count" style={{ fontSize: "9px" }}>
                 {selectedTags.length}
@@ -197,12 +197,13 @@ export default function EliteFullList() {
       </div>
 
       <div className=" flex flex-col w-full max-w-6xl gap-4">
-        <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">
+        <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px_1fr] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">
           <div>Title</div>
           <div>Image</div>
           <div>Description</div>
           <div>Note</div>
           <div>Tier</div>
+          <div>Tags</div>
         </div>
         {filteredList.length === 0 ? (
           <p className="text-black  px-6 mt-4">
@@ -212,7 +213,7 @@ export default function EliteFullList() {
           filteredList.map((anime, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 lg:grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 p-6 rounded-xl text-left"
+              className="grid grid-cols-1 grid grid-cols-[1fr_170px_2fr_1fr_50px_1fr] gap-6 p-6 rounded-xl text-left"
             >
               {/* Title */}
               <div className="font-bold text-lg">
@@ -239,6 +240,30 @@ export default function EliteFullList() {
 
               {/* Tier */}
               <div className="text-sm">{anime.tier || "—"}</div>
+
+                {/* Tags */}
+              <div className="text-sm flex flex-wrap gap-1">
+                {(anime.tags || []).map((tag, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setSelectedTags((prev) =>
+                        prev.includes(tag)
+                          ? prev.filter((t) => t !== tag)
+                          : [...prev, tag],
+                      );
+                    }}
+                    className={`text-xs px-2 py-1 rounded-full transition-colors cursor-pointer
+        ${
+          selectedTags.includes(tag)
+            ? "bg-yellow-400 text-black"
+            : "bg-yellow-100 text-black"
+        }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
           ))
         )}

@@ -1,7 +1,7 @@
 export const jeansList = [
   // === Touching/Emotional ===
   {
-    tags: ["Slice of life"],
+    tags: ["Slice of life", "Adventure"],
     title: {
       romaji: "Sousou no Frieren",
       english: "Frieren: Beyond Journey’s End",
