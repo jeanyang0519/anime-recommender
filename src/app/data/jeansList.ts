@@ -13,6 +13,7 @@ export const jeansList = [
     description:
       "An elf mage reflects on her past journey with her hero companions after the hero's death, leading her on a quest of emotional rediscovery.",
     note: "I don't know why, but I tear up at the end of every episode. The storytelling is exceptionally breathtaking—out of this world.",
+    tier: "S"
   },
   {
     category: "Touching/Emotional",
@@ -27,6 +28,7 @@ export const jeansList = [
     description:
       "A small-town girl starts a new life at a prestigious Tokyo high school, where she experiences awkward yet heartwarming coming-of-age moments.",
     note: "It's not your typical high school drama—it's about life. I've never seen better character portrayals.",
+    tier: "S"
   },
 
   // === Shonen ===
@@ -43,6 +45,7 @@ export const jeansList = [
     description:
       "Humans fight for survival against giant man-eating titans in a brutal, mysterious world full of twists and political intrigue.",
     note: "It's heavy, but the worldview is so profound that you can't miss this incredible story. If you want to be wowed by an epic narrative, this is for you.",
+    tier: "S"
   },
   {
     category: "Shonen",
@@ -57,6 +60,7 @@ export const jeansList = [
     description:
       "A high school student swallows a cursed object and joins a secret organization fighting deadly curses using sorcery.",
     note: "The animation quality is next level. You can tell the animators poured their hearts into this story. Give it a try—just don't read the manga, lol.",
+    tier: "A"
   },
   {
     category: "Shonen",
@@ -71,6 +75,7 @@ export const jeansList = [
     description:
       "In a world where superpowers are common, a powerless boy dreams of becoming the greatest hero of all.",
     note: "Classic. What's not to love? Yes, it gets a bit repetitive toward the end, but still a solid watch.",
+    tier: "A-B"
   },
 
   // === Sports ===
@@ -87,6 +92,7 @@ export const jeansList = [
     description:
       "A former elite runner is persuaded to join a ragtag university team and aim for a prestigious relay race.",
     note: "Please watch this one! One of the most underrated anime.",
+    tier: "S"
   },
   {
     category: "Sports",
@@ -101,6 +107,7 @@ export const jeansList = [
     description:
       "A memory-loss-stricken pitcher and his talented catcher aim to reclaim their place in high school baseball.",
     note: "My favorite of 2024. Top-notch animation quality and storytelling.",
+    tier: "S"
   },
   {
     category: "Sports",
@@ -115,6 +122,7 @@ export const jeansList = [
     description:
       "A passionate short boy joins a high school volleyball team, determined to prove that height isn’t everything in sports.",
     note: "S tier.",
+    tier: "S"
   },
 
   // === Comedy ===
@@ -131,6 +139,7 @@ export const jeansList = [
     description:
       "A game-loving girl is forced into a dating sim-like situation by a magical creature, turning her life into romantic chaos.",
     note: "I've watched it more than five times!",
+    tier: "A"
   },
   {
     category: "Comedy",
@@ -145,6 +154,7 @@ export const jeansList = [
     description:
       "A psychic teen just wants peace and quiet, but his bizarre classmates and powers make that impossible.",
     note: "I've watched it more than ten times.",
+    tier: "A"
   },
   {
     category: "Comedy",
@@ -159,6 +169,7 @@ export const jeansList = [
     description:
       "In a world of magic, a boy without powers relies solely on his muscles to survive magical school life.",
     note: "A fun story.",
+    tier: "A"
   },
   {
     category: "Comedy",
@@ -173,6 +184,7 @@ export const jeansList = [
     description:
       "Hilarious and absurd daily adventures of a group of high school boys doing absolutely nothing productive.",
     note: "Slice of life + comedy perfection.",
+    tier: "B"
   },
   {
     category: "Comedy",
@@ -187,6 +199,7 @@ export const jeansList = [
     description:
       "A girl confesses to her crush and accidentally becomes his manga assistant. Romantic misunderstandings follow!",
     note: "Unexpectedly funny.",
+    tier: "B"
   },
   {
     category: "Comedy",
@@ -201,6 +214,7 @@ export const jeansList = [
     description:
       "A girl who brings bad luck meets an immortal man who wants to die. Together, they get wrapped up in wild superpowered battles.",
     note: "Cracks me up. The story does get more serious later, but it's still 100% worth watching.",
+    tier: "A-B"
   },
 
   // === Story-Driven ===
@@ -217,6 +231,7 @@ export const jeansList = [
     description:
       "A con artist gets tangled with a crew of elite swindlers targeting the corrupt elite around the world in stylish heists.",
     note: "Fun story and nice animation quality.",
+    tier: "A"
   },
   {
     category: "Story-Driven",
@@ -231,6 +246,7 @@ export const jeansList = [
     description:
       "After a zombie apocalypse frees him from corporate hell, a man creates a bucket list and starts truly living—even while surrounded by the undead.",
     note: "High animation quality and interesting story. If you hate your job, definitely watch this one.",
+    tier: "S"
   },
   {
     category: "Story-Driven",
@@ -245,6 +261,7 @@ export const jeansList = [
     description:
       "Two assassins suddenly find themselves taking care of a little girl. A mix of action, found family, and heartfelt comedy ensues.",
     note: "Wholesome story. Their house looks amazing—I want a house like that!",
+    tier: "A"
   },
   {
     category: "Story-Driven",
@@ -259,6 +276,7 @@ export const jeansList = [
     description:
       "In a post-apocalyptic world, two teenagers embark on a dangerous journey while uncovering the mystery behind a utopian facility.",
     note: "Exceptional story and high-quality animation.",
+    tier: "S"
   },
   {
     category: "Story-Driven",
@@ -273,6 +291,7 @@ export const jeansList = [
     description:
       "A weak hunter gains the power to level up infinitely and becomes humanity's last hope against deadly dungeon threats.",
     note: "I've never seen a man with a sharper jawline than him, lol. A feel-good type of anime for sure.",
+    tier: "A"
   },
   {
     category: "Story-Driven",
@@ -287,6 +306,7 @@ export const jeansList = [
     description:
       "Children at a seemingly perfect orphanage uncover a terrifying secret and plan their escape in this suspenseful thriller.",
     note: "The storyline is exceptional.",
+    tier: "A"
   },
   {
     category: "Story-Driven",
@@ -301,6 +321,7 @@ export const jeansList = [
     description:
       "A reincarnated fan navigates the dark side of showbiz while protecting the children of a pop idol. Full of twists and commentary on fame.",
     note: "Not sure how I feel about this one. Lots of twists and turns.",
+    tier: "B"
   },
   {
     category: "Story-Driven",
@@ -315,6 +336,7 @@ export const jeansList = [
     description:
       "A reserved psychic teen just wants a normal life, but his immense power draws supernatural chaos and emotional growth.",
     note: "If you struggle with confidence, watch this one.",
+    tier: "A"
   },
   {
     category: "Story-Driven",
@@ -329,6 +351,7 @@ export const jeansList = [
     description:
       "A quirky adventuring party explores a dungeon and cooks monsters along the way to save a kidnapped sister.",
     note: "Incredible animation quality and exceptional storyline. Love it.",
+    tier: "S"
   },
   {
     category: "Story-Driven",
@@ -343,6 +366,7 @@ export const jeansList = [
     description:
       "A spy, an assassin, and a telepath pose as a fake family for their own missions—but end up building real bonds.",
     note: "Fun story—and Anya is the cutest!",
+    tier: "S"
   },
 
   // === Healing ===
@@ -359,6 +383,7 @@ export const jeansList = [
     description:
       "A man starts a new job after being harassed by his previous boss, only to find his new manager is adorably clueless and kind-hearted.",
     note: "I want a boss like that!",
+    tier: "A"
   },
 
   // === Shojo ===
@@ -375,6 +400,7 @@ export const jeansList = [
     description:
       "A girl meets an aloof gamer boy in an online game after a breakup, and they slowly form a connection IRL.",
     note: "I want to be friends with her. If you're into romantic anime, this one's refreshing.",
+    tier: "A"
   },
   {
     category: "Shojo",
@@ -389,6 +415,7 @@ export const jeansList = [
     description:
       "A high school badminton player harbors feelings for an upperclassman living under the same roof. A sweet, slow-burn romance.",
     note: "Makes me want to go back to high school.",
+    tier: "A"
   },
   {
     category: "Shojo",
@@ -403,6 +430,7 @@ export const jeansList = [
     description:
       "A comedy that focuses on all the girls who *don’t* get the guy, with lots of meta twists and love triangle chaos.",
     note: "Not your typical shoujo anime. You'll like it anyway.",
+    tier: "A"
   },
 
   // === Shonen B ===
@@ -419,6 +447,7 @@ export const jeansList = [
     description:
       "A ninja sentenced to death is given a chance at pardon—if he can retrieve the Elixir of Life from a deadly island. Brutal, surreal, and intense.",
     note: "Story line is good. season 2 is coming out in 2026.",
+    tier: "B"
   },
   {
     category: "Shonen B",
@@ -433,6 +462,7 @@ export const jeansList = [
     description:
       "Famed strategist Kongming is reborn in modern Tokyo and becomes the manager of a struggling singer, applying ancient tactics to pop music success.",
     note: "Fun story. It’s even more interesting if you’ve heard of Kongming before.",
+    tier: "B"
   },
 
   // === OG Shojo ===
@@ -449,6 +479,7 @@ export const jeansList = [
     description:
       "A scholarship girl accidentally breaks a vase and joins the school’s elite Host Club, posing as a boy. Chaos and romance ensue.",
     note: "My childhood favorite shoujo anime!!! Still so enjoyable to watch now.",
+    tier: "S"
   },
 
   // === OG Shonen ===
@@ -465,6 +496,7 @@ export const jeansList = [
     description:
       "An energetic ninja dreams of becoming the strongest in his village, carrying the burden of a dangerous beast inside him.",
     note: "The love of my life.",
+    tier: "S"
   },
   {
     category: "OG Shonen",
@@ -479,6 +511,7 @@ export const jeansList = [
     description:
       "A boy embarks on a dangerous journey to become a Hunter and find his missing father, encountering wild powers and deep friendships.",
     note: "If someone says Hunter x Hunter is their top anime, they. have. taste.",
+    tier: "S"
   },
   {
     category: "OG Shonen",
@@ -493,6 +526,7 @@ export const jeansList = [
     description:
       "Luffy sets sail to become the Pirate King in a vast world full of adventure, devil fruits, and lifelong crewmates.",
     note: "OG.",
+    tier: "A"
   },
   {
     category: "OG Shonen",
@@ -507,6 +541,7 @@ export const jeansList = [
     description:
       "A genius teen detective is turned into a child by a mysterious drug and solves crimes while searching for the truth behind the organization.",
     note: "I grew up with him.",
+    tier: "A"
   },
 
   // === Movies ===
@@ -523,6 +558,7 @@ export const jeansList = [
     description:
       "Two teenagers mysteriously begin switching bodies and develop a deep connection that transcends time and space.",
     note: "I tear up every time I watch it.",
+    tier: "S"
   },
   {
     category: "Movie",
@@ -537,6 +573,7 @@ export const jeansList = [
     description:
       "A high school girl gains the ability to time travel and learns that tampering with the past has its consequences.",
     note: "You have to watch this one—underrated!",
+    tier: "S"
   },
   {
     category: "Movie",
@@ -551,6 +588,7 @@ export const jeansList = [
     description:
       "Two young manga artists form a bond through creativity and ambition, only to face a tragedy that reshapes their path. A poignant story by Tatsuki Fujimoto.",
     note: "I cried.",
+    tier: "S"
   },
 
   // === Light-hearted ===
@@ -567,6 +605,7 @@ export const jeansList = [
     description:
       "A man is transported to a fantasy world where he uses his modern online grocery skill to cook mouthwatering meals that charm mythical beasts.",
     note: "Fun story, and I get hungry every time I watch it.",
+    tier: "A"
   },
   {
     category: "Light-hearted",
@@ -581,5 +620,6 @@ export const jeansList = [
     description:
       "A martial artist cursed to transform into a girl when splashed with cold water navigates wild martial arts, awkward romance, and endless chaos.",
     note: "Classic remake. High animation quality.",
+    tier: "A"
   },
 ];
