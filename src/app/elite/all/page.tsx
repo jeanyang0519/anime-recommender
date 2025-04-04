@@ -10,7 +10,7 @@ export default function EliteFullList() {
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
       <h1 className="text-4xl font-bold">📚 Jean’s Anime List</h1>
-      <p className="text-lg mb-8">Curated with love</p>
+      <p className="text-lg mb-8">Curated with love and care</p>
 
       <div className=" flex flex-col w-full max-w-6xl gap-4">
         <div className="hidden lg:grid grid-cols-[1fr_170px_2fr_1fr_50px] gap-6 px-6 text-left font-semibold text-gray-600 mb-2">
