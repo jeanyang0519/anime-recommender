@@ -1,7 +1,7 @@
 export const jeansList = [
   // === Touching/Emotional ===
   {
-    category: "Slice of life",
+    tags: ["Slice of life"],
     title: {
       romaji: "Sousou no Frieren",
       english: "Frieren: Beyond Journey’s End",
@@ -16,7 +16,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Slice of life",
+    tags: ["Slice of life"],
     title: {
       romaji: "Skip to Loafer",
       english: "Skip and Loafer",
@@ -33,7 +33,7 @@ export const jeansList = [
 
   // === Shonen ===
   {
-    category: "Shonen",
+    tags: ["Shonen"],
     title: {
       romaji: "Shingeki no Kyojin",
       english: "Attack on Titan",
@@ -48,7 +48,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Shonen",
+    tags: ["Shonen"],
     title: {
       romaji: "Jujutsu Kaisen",
       english: "Jujutsu Kaisen",
@@ -63,7 +63,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Shonen",
+    tags: ["Shonen"],
     title: {
       romaji: "Boku no Hero Academia",
       english: "My Hero Academia",
@@ -80,7 +80,7 @@ export const jeansList = [
 
   // === Sports ===
   {
-    category: "Sports",
+    tags: ["Sports"],
     title: {
       romaji: "Kaze ga Tsuyoku Fuiteiru",
       english: "Run with the Wind",
@@ -95,7 +95,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Sports",
+    tags: ["Sports"],
     title: {
       romaji: "Boukyaku Battery",
       english: "Oblivion Battery",
@@ -110,7 +110,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Sports",
+    tags: ["Sports"],
     title: {
       romaji: "Haikyuu!!",
       english: "Haikyuu!!",
@@ -127,7 +127,7 @@ export const jeansList = [
 
   // === Comedy ===
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Romantic Killer",
       english: "Romantic Killer",
@@ -142,7 +142,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Saiki Kusuo no Psi-nan",
       english: "The Disastrous Life of Saiki K.",
@@ -157,7 +157,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Mashle",
       english: "Mashle: Magic and Muscles",
@@ -172,7 +172,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Danshi Koukousei no Nichijou",
       english: "Daily Lives of High School Boys",
@@ -187,7 +187,7 @@ export const jeansList = [
     tier: "B",
   },
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Gekkan Shoujo Nozaki-kun",
       english: "Monthly Girls' Nozaki-kun",
@@ -202,7 +202,7 @@ export const jeansList = [
     tier: "B",
   },
   {
-    category: "Comedy",
+    tags: ["Comedy"],
     title: {
       romaji: "Undead Unluck",
       english: "Undead Unluck",
@@ -219,7 +219,7 @@ export const jeansList = [
 
   // === Story-Driven ===
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Great Pretender",
       english: "Great Pretender",
@@ -234,7 +234,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Zom 100: Zombie ni Naru made ni Shitai 100 no Koto",
       english: "Zom 100: Bucket List of the Dead",
@@ -249,7 +249,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Buddy Daddies",
       english: "Buddy Daddies",
@@ -264,7 +264,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Tengoku Daimakyou",
       english: "Heavenly Delusion",
@@ -279,7 +279,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Ore dake Level Up na Ken",
       english: "Solo Leveling",
@@ -294,7 +294,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Yakusoku no Neverland",
       english: "The Promised Neverland",
@@ -309,7 +309,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Oshi no Ko",
       english: "Oshi no Ko",
@@ -324,7 +324,7 @@ export const jeansList = [
     tier: "B",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Mob Psycho 100",
       english: "Mob Psycho 100",
@@ -339,7 +339,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Dungeon Meshi",
       english: "Delicious in Dungeon",
@@ -354,7 +354,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Story-Driven",
+    tags: ["Story-Driven"],
     title: {
       romaji: "Spy x Family",
       english: "Spy x Family",
@@ -371,7 +371,7 @@ export const jeansList = [
 
   // === Healing ===
   {
-    category: "Healing",
+    tags: ["Healing"],
     title: {
       romaji: "Atarashii Joshi wa Do Tennen",
       english: "My New Boss is Goofy",
@@ -388,7 +388,7 @@ export const jeansList = [
 
   // === Shojo ===
   {
-    category: "Shojo",
+    tags: ["Shojo"],
     title: {
       romaji: "Yamada Lv999 no Koi wo Suru",
       english: "My Love Story with Yamada-kun at Lv999",
@@ -403,7 +403,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Shojo",
+    tags: ["Shojo"],
     title: {
       romaji: "Ao no Hako",
       english: "Blue Box",
@@ -418,7 +418,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Shojo",
+    tags: ["Shojo"],
     title: {
       romaji: "Make Heroine ga Oosugiru!",
       english: "Too Many Losing Heroines!",
@@ -433,9 +433,8 @@ export const jeansList = [
     tier: "A",
   },
 
-  
   {
-    category: "Shonen",
+    tags: ["Shonen"],
     title: {
       romaji: "Jigokuraku",
       english: "Hell's Paradise",
@@ -450,7 +449,7 @@ export const jeansList = [
     tier: "B",
   },
   {
-    category: "Shonen",
+    tags: ["Shonen"],
     title: {
       romaji: "Paripi Koumei",
       english: "Ya Boy Kongming!",
@@ -467,7 +466,7 @@ export const jeansList = [
 
   // === OG Shojo ===
   {
-    category: "OG Shojo",
+    tags: ["OG Shojo"],
     title: {
       romaji: "Ouran Koukou Host Club",
       english: "Ouran High School Host Club",
@@ -484,7 +483,7 @@ export const jeansList = [
 
   // === OG Shonen ===
   {
-    category: "OG Shonen",
+    tags: ["OG Shonen"],
     title: {
       romaji: "Naruto",
       english: "Naruto",
@@ -499,7 +498,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "OG Shonen",
+    tags: ["OG Shonen"],
     title: {
       romaji: "Hunter x Hunter",
       english: "Hunter x Hunter",
@@ -514,7 +513,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "OG Shonen",
+    tags: ["OG Shonen"],
     title: {
       romaji: "One Piece",
       english: "One Piece",
@@ -529,7 +528,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "OG Shonen",
+    tags: ["OG Shonen"],
     title: {
       romaji: "Detective Conan",
       english: "Case Closed",
@@ -546,7 +545,7 @@ export const jeansList = [
 
   // === Movies ===
   {
-    category: "Movie",
+    tags: ["Movie"],
     title: {
       romaji: "Kimi no Na wa",
       english: "Your Name",
@@ -561,7 +560,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Movie",
+    tags: ["Movie"],
     title: {
       romaji: "Toki wo Kakeru Shoujo",
       english: "The Girl Who Leapt Through Time",
@@ -576,7 +575,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    category: "Movie",
+    tags: ["Movie"],
     title: {
       romaji: "Look Back",
       english: "Look Back",
@@ -593,7 +592,7 @@ export const jeansList = [
 
   // === Light-hearted ===
   {
-    category: "Light-hearted",
+    tags: ["Light-hearted"],
     title: {
       romaji: "Tondemo Skill de Isekai Hourou Meshi",
       english: "Campfire Cooking in Another World with My Absurd Skill",
@@ -608,7 +607,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    category: "Light-hearted",
+    tags: ["Light-hearted"],
     title: {
       romaji: "Ranma ½",
       english: "Ranma ½",
