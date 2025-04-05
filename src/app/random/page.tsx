@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
-import { fallbackAnime } from "../data/fallbackAnime";
+import { jeansList } from "../data/jeansList"; 
 
 export default function RandomPick() {
   const [anime, setAnime] = useState<any | null>(null);
@@ -33,13 +33,13 @@ export default function RandomPick() {
         setAnime(randomAnime);
       } else {
         const fallback =
-          fallbackAnime[Math.floor(Math.random() * fallbackAnime.length)];
+        jeansList[Math.floor(Math.random() * jeansList.length)];
         setAnime(fallback);
       }
     } catch (err) {
       console.error("Failed to fetch random anime:", err);
       const fallback =
-        fallbackAnime[Math.floor(Math.random() * fallbackAnime.length)];
+      jeansList[Math.floor(Math.random() * jeansList.length)];
       setAnime(fallback);
     } finally {
       setLoading(false);
