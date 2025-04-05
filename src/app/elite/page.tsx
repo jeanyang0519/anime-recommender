@@ -58,9 +58,7 @@ export default function ElitePage() {
         <Link href="/full" className="btn-yellow w-full sm:w-auto">
           📚 Show Full List
         </Link>
-        <Link href="/" className="btn-yellow w-full sm:w-auto">
-          🏠 Back to Home
-        </Link>
+   
       </div>
     </div>
   );

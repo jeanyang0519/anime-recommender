@@ -299,9 +299,7 @@ export default function EliteFullList() {
         <Link href="/elite" className="btn-yellow w-full sm:w-auto">
           ⬅️ Back to Elite Picks
         </Link>
-        <Link href="/" className="btn-yellow w-full sm:w-auto">
-          🏠 Back to Home
-        </Link>
+       
       </div>
     </div>
   );

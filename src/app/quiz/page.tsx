@@ -162,9 +162,7 @@ export default function QuizPage() {
           <button onClick={restartQuiz} className="btn-yellow">
             🔁 Try Again
           </button>
-          <Link href="/" className="btn-yellow">
-            🏠 Back to Home
-          </Link>
+          
         </div>
       </div>
     );
