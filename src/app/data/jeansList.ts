@@ -1,7 +1,7 @@
 export const jeansList = [
   // === Touching/Emotional ===
   {
-    tags: ["Slice of life", "Adventure"],
+    tags: ["Slice of life", "Adventure", "Fantasy"],
     title: {
       romaji: "Sousou no Frieren",
       english: "Frieren: Beyond Journey’s End",
@@ -16,7 +16,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    tags: ["Slice of life"],
+    tags: ["Slice of life", "Friendship"],
     title: {
       romaji: "Skip to Loafer",
       english: "Skip and Loafer",

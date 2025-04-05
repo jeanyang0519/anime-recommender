@@ -55,7 +55,7 @@ export default function ElitePage() {
         <button onClick={regenerate} className="btn-yellow w-full sm:w-auto">
           🔁 Try Again
         </button>
-        <Link href="/elite/all" className="btn-yellow w-full sm:w-auto">
+        <Link href="/full" className="btn-yellow w-full sm:w-auto">
           📚 Show Full List
         </Link>
         <Link href="/" className="btn-yellow w-full sm:w-auto">

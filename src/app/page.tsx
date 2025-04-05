@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 
+
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-10 p-8 text-center">
+      
       <h1 className="text-4xl font-extrabold">
         Let me help you pick your next anime to watch
       </h1>

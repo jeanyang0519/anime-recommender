@@ -56,7 +56,6 @@ h1 {
   @apply flex flex-row sm:flex-row gap-2 w-full max-w-6xl  mb-4;
 }
 
-
 .dropdown {
   @apply absolute z-10 mt-2 bg-white text-black rounded text-left border border-gray-100;
 }
@@ -67,4 +66,8 @@ h1 {
 
 .count {
   @apply inline-flex items-center justify-center rounded-full bg-blue-200 w-4 h-4 border;
+}
+
+.navbar-item {
+  @apply hover:bg-gray-100 rounded py-1 px-3 rounded-full
 }

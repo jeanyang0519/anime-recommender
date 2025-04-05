@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { jeansList } from "../../data/jeansList";
+import { jeansList } from "../data/jeansList";
 import { useState, useEffect, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { getTagColor, darkenColor } from "../../../utils/getTagColor";
+import { getTagColor, darkenColor } from "../../utils/getTagColor";
 
 export default function EliteFullList() {
   const [selectedTiers, setSelectedTiers] = useState<string[]>([]);
@@ -243,18 +243,20 @@ export default function EliteFullList() {
 
               {/* Note */}
               <div className="text-sm">
-              <div className="block md:hidden font-semibold">Jean's Note:</div>
-                {anime.note || "—"}</div>
+                <div className="block md:hidden font-semibold">
+                  Jean's Note:
+                </div>
+                {anime.note || "—"}
+              </div>
 
               {/* Tier */}
               <div className="text-sm">
-              <div className="block md:hidden font-semibold">Tier:</div>
+                <div className="block md:hidden font-semibold">Tier:</div>
                 {anime.tier || "—"}
               </div>
 
               {/* Tags */}
-              <div className="text-sm flex gap-2 overflow-x-auto whitespace-nowrap items-start max-w-full">
-              {/* <div className="block md:hidden font-semibold">Tags:</div> */}
+              <div className="text-sm">
                 {(anime.tags || []).map((tag, i) => {
                   const baseColor = getTagColor(tag);
                   const borderColor = darkenColor(baseColor, 15);
@@ -262,29 +264,31 @@ export default function EliteFullList() {
                     ? darkenColor(baseColor, 10)
                     : baseColor;
                   return (
-                    <button
-                      key={i}
-                      onClick={() => {
-                        setSelectedTags((prev) =>
-                          prev.includes(tag)
-                            ? prev.filter((t) => t !== tag)
-                            : [...prev, tag],
-                        );
-                      }}
-                      title={`Filter by ${tag}`}
-                      className="text-xs px-2 py-1 rounded-full transition-colors cursor-pointer w-fit"
-                      style={{
-                        backgroundColor,
-                        border: `2px solid ${borderColor}`,
-                        opacity:
-                          selectedTags.length === 0 ||
-                          selectedTags.includes(tag)
-                            ? 1
-                            : 0.4,
-                      }}
-                    >
-                      {tag}
-                    </button>
+                    
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setSelectedTags((prev) =>
+                            prev.includes(tag)
+                              ? prev.filter((t) => t !== tag)
+                              : [...prev, tag],
+                          );
+                        }}
+                        title={`Filter by ${tag}`}
+                        className="text-xs px-2 py-1 mr-1 mb-1 rounded-full transition-colors cursor-pointer w-fit max-w-full"
+                        style={{
+                          backgroundColor,
+                          border: `2px solid ${borderColor}`,
+                          opacity:
+                            selectedTags.length === 0 ||
+                            selectedTags.includes(tag)
+                              ? 1
+                              : 0.4,
+                        }}
+                      >
+                        {tag}
+                      </button>
+                    
                   );
                 })}
               </div>
