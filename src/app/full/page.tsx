@@ -203,7 +203,7 @@ export default function EliteFullList() {
       </div>
 
       <div className="flex flex-col w-full max-w-6xl rounded-md ">
-        <div className="hidden md:grid grid-cols-[1fr_150px_2fr_1fr_60px_1fr] gap-4 px-4 py-2 text-left font-semibold text-gray-600">
+        <div className="hidden md:grid grid-cols-[1fr_150px_2fr_2fr_60px_1fr] gap-4 px-4 py-2 text-left font-semibold text-gray-600">
           <div>Title</div>
           <div>Image</div>
           <div>Description</div>
@@ -219,7 +219,7 @@ export default function EliteFullList() {
           filteredList.map((anime, index) => (
             <div
               key={index}
-              className="grid md:grid-cols-[1fr_150px_2fr_1fr_60px_1fr] grid-cols-1 gap-4 px-4 py-4 border-t border-gray-300 hover:bg-gray-100"
+              className="grid md:grid-cols-[1fr_150px_2fr_2fr_60px_1fr] grid-cols-1 gap-4 px-4 py-4 border-t border-gray-300 hover:bg-gray-100"
             >
               {/* Title */}
               <div className="font-bold text-lg">

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchAnimeByGenres } from "../../../utils/fetchAnime";
-import { fallbackAnime } from "../../data/fallbackAnime";
+import { jeansList } from "../../data/jeansList"; 
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,13 +29,20 @@ export async function POST(req: NextRequest) {
     if (result.length < 3) {
       const missing = 3 - result.length;
 
-      // pick from fallbackAnime to fill
-      const fallbackToAdd = fallbackAnime.slice(0, missing);
+      
+      const getRandomAnimeSubset = (list: typeof jeansList, count: number) => {
+        const shuffled = [...list].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      };
+      
+      const fallbackToAdd = getRandomAnimeSubset(jeansList, missing);
+      
+      
       result.push(...fallbackToAdd);
     }
 
     return NextResponse.json(result.slice(0, 3));
-    return NextResponse.json(animeList.slice(0, 3));
+    
   } catch (error) {
     console.error("Recommendation error:", error);
     return NextResponse.json(
