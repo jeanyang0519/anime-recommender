@@ -11,34 +11,49 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
     setDropdownOpen(false); // Close dropdown when toggling menu
   };
 
-  const toggleDropdown = () => {
-    const isMobile = window.innerWidth < 768;
-    setDropdownOpen((prev) => !prev);
-
-    if (isMobile) {
-      setMenuOpen(false);
-    }
-  };
+  
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !(menuRef.current as any).contains(event.target)) {
+    const handleClick = (event: MouseEvent) => {
+      const target = event.target as Node;
+  
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target)
+      ) {
+        // full navbar clicked outside — close all
         setMenuOpen(false);
         setDropdownOpen(false);
       }
+  
+      if (
+        dropdownOpen &&
+        menuRef.current &&
+        menuRef.current.contains(target) &&
+        !dropdownRef.current?.contains(target) &&
+        !menuButtonRef.current?.contains(target)
+      ) {
+        // clicked inside navbar, but NOT on dropdown or menu button
+        setDropdownOpen(false);
+      }
     };
-
-    document.addEventListener("mousedown", handleClickOutside);
+  
+    document.addEventListener("mousedown", handleClick);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClick);
     };
-  }, []);
+  }, [dropdownOpen]);
+  
 
   return (
     <nav
@@ -73,6 +88,7 @@ export default function Navbar() {
 
           <div className="relative">
             <button
+            ref={menuButtonRef}
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-1 navbar-item"
             >
@@ -86,6 +102,7 @@ export default function Navbar() {
             <AnimatePresence>
               {dropdownOpen && (
                 <motion.div
+                ref={dropdownRef}
                   initial={{ opacity: 0, scale: 0.95, y: -10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -10 }}
