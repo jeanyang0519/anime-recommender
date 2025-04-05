@@ -264,31 +264,29 @@ export default function EliteFullList() {
                     ? darkenColor(baseColor, 10)
                     : baseColor;
                   return (
-                    
-                      <button
-                        key={i}
-                        onClick={() => {
-                          setSelectedTags((prev) =>
-                            prev.includes(tag)
-                              ? prev.filter((t) => t !== tag)
-                              : [...prev, tag],
-                          );
-                        }}
-                        title={`Filter by ${tag}`}
-                        className="text-xs px-2 py-1 mr-1 mb-1 rounded-full transition-colors cursor-pointer w-fit max-w-full"
-                        style={{
-                          backgroundColor,
-                          border: `2px solid ${borderColor}`,
-                          opacity:
-                            selectedTags.length === 0 ||
-                            selectedTags.includes(tag)
-                              ? 1
-                              : 0.4,
-                        }}
-                      >
-                        {tag}
-                      </button>
-                    
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setSelectedTags((prev) =>
+                          prev.includes(tag)
+                            ? prev.filter((t) => t !== tag)
+                            : [...prev, tag],
+                        );
+                      }}
+                      title={`Filter by ${tag}`}
+                      className="text-xs px-2 py-1 mr-1 mb-1 rounded-full transition-colors cursor-pointer w-fit max-w-full"
+                      style={{
+                        backgroundColor,
+                        border: `2px solid ${borderColor}`,
+                        opacity:
+                          selectedTags.length === 0 ||
+                          selectedTags.includes(tag)
+                            ? 1
+                            : 0.4,
+                      }}
+                    >
+                      {tag}
+                    </button>
                   );
                 })}
               </div>

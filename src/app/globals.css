@@ -69,5 +69,5 @@ h1 {
 }
 
 .navbar-item {
-  @apply hover:bg-gray-100 rounded py-1 px-3 rounded-full
+  @apply hover:bg-gray-100 rounded py-1 px-3 rounded-full;
 }
