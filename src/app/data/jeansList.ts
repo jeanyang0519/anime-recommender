@@ -1,7 +1,7 @@
 export const jeansList = [
   // === Touching/Emotional ===
   {
-    tags: ["Slice of life", "Adventure", "Fantasy", "Friendship"],
+    tags: ["Slice of Life", "Adventure", "Fantasy", "Friendship"],
     title: {
       romaji: "Sousou no Frieren",
       english: "Frieren: Beyond Journey’s End",
@@ -16,7 +16,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    tags: ["Slice of life", "Friendship", "School"],
+    tags: ["Slice of Life", "Friendship", "School"],
     title: {
       romaji: "Skip to Loafer",
       english: "Skip and Loafer",
@@ -339,7 +339,7 @@ export const jeansList = [
     tier: "A",
   },
   {
-    tags: ["Story-Driven", "Drama", "Fantacy"],
+    tags: ["Story-Driven", "Drama", "Fantasy"],
     title: {
       romaji: "Dungeon Meshi",
       english: "Delicious in Dungeon",
@@ -498,7 +498,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    tags: ["OG Shonen", "Friendship", "Action", "Adventrue", "Shonen"],
+    tags: ["OG Shonen", "Friendship", "Action", "Adventure", "Shonen"],
     title: {
       romaji: "Hunter x Hunter",
       english: "Hunter x Hunter",
@@ -513,7 +513,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    tags: ["OG Shonen", "Adventrue", "Action", "Friendship", "Shonen"],
+    tags: ["OG Shonen", "Adventure", "Action", "Friendship", "Shonen"],
     title: {
       romaji: "One Piece",
       english: "One Piece",
@@ -560,7 +560,7 @@ export const jeansList = [
     tier: "S",
   },
   {
-    tags: ["Movie", "Slice of Life", "Friendship", "Romance", "Adventrue"],
+    tags: ["Movie", "Slice of Life", "Friendship", "Romance", "Adventure"],
     title: {
       romaji: "Toki wo Kakeru Shoujo",
       english: "The Girl Who Leapt Through Time",
@@ -592,7 +592,7 @@ export const jeansList = [
 
   // === Light-hearted ===
   {
-    tags: ["Light-hearted", "Adventrue"],
+    tags: ["Light-hearted", "Adventure"],
     title: {
       romaji: "Tondemo Skill de Isekai Hourou Meshi",
       english: "Campfire Cooking in Another World with My Absurd Skill",
