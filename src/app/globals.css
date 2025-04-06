@@ -71,3 +71,7 @@ h1 {
 .navbar-item {
   @apply hover:bg-gray-100 rounded py-1 px-3 rounded-full;
 }
+
+.title {
+  @apply text-4xl font-extrabold
+}

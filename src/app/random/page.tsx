@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
+import { motion } from "framer-motion";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
 import { jeansList } from "../data/jeansList"; 
 
@@ -65,11 +65,23 @@ export default function RandomPick() {
   }, [anime]);
 
   if (loading)
-    return <p className="text-center p-6">Loading your random anime...</p>;
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center">
+        <motion.div
+  animate={{ rotate: 360 }}
+  transition={{ repeat: Infinity, ease: "linear", duration: 1 }}
+  className="text-4xl"
+>
+⏳
+</motion.div>
+<div className="font-2xl">Loading</div>
+
+      </div>
+    );
 
   return (
-    <div className="min-h-screen p-8 text-center flex flex-col items-center justify-center gap-4">
-      <h1 className="text-3xl font-bold">🎲 Your Random Anime Pick</h1>
+    <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
+      <h1 className="title">🎲 Your Random Anime Pick</h1>
       <div className="card w-full max-w-2xl mx-auto">
         <h2 className="text-2xl font-semibold mb-2">
           {anime.title.romaji}
@@ -115,7 +127,7 @@ export default function RandomPick() {
           )}
         </div>
       </div>
-      <div className="flex flex-row sm:flex-row gap-4 mt-6">
+      <div className="flex flex-row sm:flex-row gap-4 ">
         <button onClick={getRandom} className="btn-yellow ">
           🔁 Try Again
         </button>

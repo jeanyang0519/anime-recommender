@@ -109,20 +109,7 @@ export default function Navbar() {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                   className="absolute right-0 mt-2 bg-white border border-gray-100 shadow-md rounded w-48 z-10"
                 >
-                  <Link
-                    href="/random"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={() => setDropdownOpen(false)}
-                  >
-                    Random Pick
-                  </Link>
-                  <Link
-                    href="/elite"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                    onClick={() => setDropdownOpen(false)}
-                  >
-                    Elite Picks
-                  </Link>
+                  
                   <Link
                     href="/full"
                     className="block px-4 py-2 hover:bg-gray-100"
@@ -137,6 +124,21 @@ export default function Navbar() {
                   >
                     Take the Quiz
                   </Link>
+                  <Link
+                    href="/elite"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    Elite Picks
+                  </Link>
+                  <Link
+                    href="/random"
+                    className="block px-4 py-2 hover:bg-gray-100"
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    Random Pick
+                  </Link>
+                  
                 </motion.div>
               )}
             </AnimatePresence>

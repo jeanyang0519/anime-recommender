@@ -1,11 +1,17 @@
 const tagThemeColors: Record<string, string> = {
-  Action: "hsl(0, 70%, 92%)",
-  Adventure: "hsl(25, 85%, 92%)",
-  Romance: "hsl(330, 70%, 92%)",
-  "Slice of life": "hsl(199, 77%, 92%)",
-  Drama: "hsl(270, 70%, 92%)",
-  Comedy: "hsl(50, 85%, 92%)",
-  Fantasy: "hsl(140, 60%, 92%)",
+//   Action: "hsl(0, 70%, 92%)",
+//   Adventure: "hsl(25, 85%, 92%)",
+//   Romance: "hsl(330, 70%, 92%)",
+//   "Slice of life": "hsl(199, 77%, 92%)",
+//   Drama: "hsl(270, 70%, 92%)",
+//   Comedy: "hsl(50, 85%, 92%)",
+//   Fantasy: "hsl(140, 60%, 92%)",
+//   Friendship: "hsl(226, 100.00%, 88.00%)",
+//   Shonen: "hsl(140, 60%, 92%)",
+//   Shojo: "hsl(14, 61.00%, 92.00%)",
+//   Sports: "hsl(259, 61.00%, 92.00%)",
+//   School: "hsl(68, 100.00%, 92.50%)",
+  
 };
 
 export function getTagColor(tag: string): string {

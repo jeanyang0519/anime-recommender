@@ -102,10 +102,10 @@ export default function QuizPage() {
   if (recommendations) {
     return (
       <div className="p-8 max-w-7xl mx-auto text-center">
-        <h1 className="text-4xl font-extrabold mb-6">
+        <h1 className="title">
           🍿 Your Anime Watchlist Awaits
         </h1>
-        <p className="text-lg mb-8">
+        <p className="text-lg my-4">
           Based on your vibe check, here's what you should absolutely be
           watching next:
         </p>
@@ -122,6 +122,7 @@ export default function QuizPage() {
                     ({anime.title.native})
                   </span>
                 )}
+                
               </h2>
 
               <img
@@ -158,7 +159,7 @@ export default function QuizPage() {
             </div>
           ))}
         </div>
-        <div className="flex flex-row sm:flex-row gap-4 justify-center mt-6">
+        <div className="flex flex-row sm:flex-row gap-4 justify-center mt-4">
           <button onClick={restartQuiz} className="btn-yellow">
             🔁 Try Again
           </button>
@@ -175,12 +176,12 @@ export default function QuizPage() {
 
   return (
     <div className="p-8 max-w-auto mx-auto text-center">
-      <h1 className="text-4xl font-extrabold mb-4">
+      <h1 className="title">
         🪄 Make your choice and see what unfolds
       </h1>
 
-      <p className="text-xl font-medium mb-6">{q.question}</p>
-      <div className="flex flex-col gap-4 items-center">
+      <p className="text-xl font-medium my-6">{q.question}</p>
+      <div className="flex flex-col gap-6 items-center">
         {q.options.map((option, i) => (
           <button
             key={i}
@@ -191,14 +192,10 @@ export default function QuizPage() {
           </button>
         ))}
       </div>
-      <p className="mt-6 mb-10 text-sm text-gray-400">
+      <p className="mt-6 text-sm text-gray-400">
         Question {current + 1} of {shuffledQuestions.length}
       </p>
-      <div>
-        <Link href="/" className="btn-yellow">
-          🏠 Back to Home
-        </Link>
-      </div>
+      
     </div>
   );
 }

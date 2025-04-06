@@ -162,7 +162,7 @@ export default function EliteFullList() {
                   />
                   Select All
                 </label>
-                {[...new Set(jeansList.flatMap((a) => a.tags || []))].map(
+                {[...new Set(jeansList.flatMap((a) => a.tags || []))].sort().map(
                   (cat, i) => (
                     <label key={i} className="dropdown-label">
                       <input
@@ -297,7 +297,7 @@ export default function EliteFullList() {
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6">
         <Link href="/elite" className="btn-yellow w-full sm:w-auto">
-          ⬅️ Back to Elite Picks
+          ⬅️ Go to Elite Picks
         </Link>
        
       </div>
