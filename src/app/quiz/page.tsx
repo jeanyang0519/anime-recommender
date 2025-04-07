@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { QUESTIONS, Option } from "../questions";
+import FadeText from "../../components/FadeText";
 
 export type Answer = {
   q: string;
@@ -21,44 +22,11 @@ export default function QuizPage() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [recommendations, setRecommendations] = useState<any[] | null>(null);
-  const [expandedMap, setExpandedMap] = useState<Record<number, boolean>>({});
-  const [shouldTruncateMap, setShouldTruncateMap] = useState<
-    Record<number, boolean>
-  >({});
 
   useEffect(() => {
     const selected = shuffle(QUESTIONS).slice(0, 5);
     setShuffledQuestions(selected);
   }, []);
-
-  useEffect(() => {
-    if (!recommendations) return;
-
-    const newExpandedMap: Record<number, boolean> = {};
-    const newTruncateMap: Record<number, boolean> = {};
-
-    recommendations.forEach((anime, index) => {
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = anime.description;
-      document.body.appendChild(tempDiv);
-      const height = tempDiv.offsetHeight;
-      document.body.removeChild(tempDiv);
-
-      const shouldTruncate = anime.description?.length > 200 || height > 200;
-      newTruncateMap[index] = shouldTruncate;
-      newExpandedMap[index] = !shouldTruncate;
-    });
-
-    setShouldTruncateMap(newTruncateMap);
-    setExpandedMap(newExpandedMap);
-  }, [recommendations]);
-
-  const toggleExpanded = (index: number) => {
-    setExpandedMap((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
 
   const handleAnswer = (option: Option) => {
     const nextAnswers = [
@@ -130,32 +98,7 @@ export default function QuizPage() {
                 alt={anime.title.romaji}
                 className="w-48 mx-auto rounded-lg mb-5 mt-3"
               />
-              <div className="relative flex-1">
-                <p
-                  className={`text-base text-left transition-all duration-300 ease-in-out ${
-                    !expandedMap[index] ? "line-clamp-[12] overflow-hidden" : ""
-                  }`}
-                  dangerouslySetInnerHTML={{
-                    __html: expandedMap[index]
-                      ? anime.description
-                      : anime.description?.slice(0, 200) + "...",
-                  }}
-                />
-                {!expandedMap[index] && (
-                  <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent pointer-events-none rounded-b-2xl" />
-                )}
-              </div>
-
-              {shouldTruncateMap[index] && (
-                <div className="text-right mt-auto">
-                  <button
-                    onClick={() => toggleExpanded(index)}
-                    className="read-more"
-                  >
-                    {expandedMap[index] ? "Show less" : "Read more"}
-                  </button>
-                </div>
-              )}
+              <FadeText html={anime.description} />
             </div>
           ))}
         </div>
