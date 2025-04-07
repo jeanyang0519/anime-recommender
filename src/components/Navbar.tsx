@@ -7,6 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+// import Image from "../../public/images/logo.png"
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,9 +62,16 @@ export default function Navbar() {
       ref={menuRef}
       className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 "
     >
-      <div className="mx-3 px-4 py-3 flex items-center justify-between">
+      <div className="mx-3 px-4 flex items-center justify-between">
         {/* Logo/Brand */}
-        <Link href="/" className="text-xl font-bold text-black" onClick={() => setDropdownOpen(false)} >
+        <Link href="/" className="text-xl font-bold text-black flex items-center " onClick={() => setDropdownOpen(false)} >
+        <Image
+          src="/images/logo.png"
+          alt="Logo"
+          width={60}
+          height={60}
+          className="rounded-full"
+        />
           Anime Rec
         </Link>
 

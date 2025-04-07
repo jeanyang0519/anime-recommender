@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col items-center  gap-6 p-8 text-center">
       <h1 className="title">
-        Let me help you pick your next anime to watch
+        Let me lead you into the anime abyss
       </h1>
       <p className="text-lg text-gray-600 max-w-xl">
         These picks will help. Or hurt. I don’t know. Good luck.
