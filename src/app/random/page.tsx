@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
 import { jeansList } from "../data/jeansList"; 
+import FadeText from "../../components/FadeText";
 
 export default function RandomPick() {
   const [anime, setAnime] = useState<any | null>(null);
@@ -96,36 +97,8 @@ export default function RandomPick() {
           alt={anime.title.romaji}
           className="w-48 mx-auto rounded-lg"
         />
-        <div
-          ref={descriptionRef}
-          className="text-base mt-4 text-left transition-all duration-300 ease-in-out"
-        >
-          <p
-            dangerouslySetInnerHTML={{
-              __html: expanded
-                ? anime.description
-                : anime.description?.slice(0, 300) + "...",
-            }}
-          />
-          {shouldTruncate && (
-            <div className="text-right mt-2">
-              <button
-                onClick={() => {
-                  setExpanded(!expanded);
-                  setTimeout(() => {
-                    descriptionRef.current?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }, 50);
-                }}
-                className="read-more"
-              >
-                {expanded ? "Show less" : "Read more"}
-              </button>
-            </div>
-          )}
-        </div>
+      <FadeText html={anime.description} />
+
       </div>
       <div className="flex flex-row sm:flex-row gap-4 ">
         <button onClick={getRandom} className="btn-yellow ">
