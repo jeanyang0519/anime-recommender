@@ -63,7 +63,7 @@ export default function Navbar() {
       <div className="mx-3 px-4 py-3 flex items-center justify-between">
         {/* Logo/Brand */}
         <Link href="/" className="text-xl font-bold text-black" onClick={() => setDropdownOpen(false)} >
-          Anime Recc
+          Anime Rec
         </Link>
 
         {/* Mobile Toggle */}
