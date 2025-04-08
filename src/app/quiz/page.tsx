@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { QUESTIONS, Option } from "../questions";
 import FadeText from "../../components/FadeText";
+import LoadingSpinner from "../../components/Loading";
 
 export type Answer = {
   q: string;
@@ -111,8 +112,7 @@ export default function QuizPage() {
     );
   }
 
-  if (shuffledQuestions.length === 0)
-    return <p className="p-6 text-center">Loading your anime destiny...</p>;
+  if (shuffledQuestions.length === 0) return <LoadingSpinner />;
 
   const q = shuffledQuestions[current];
 
