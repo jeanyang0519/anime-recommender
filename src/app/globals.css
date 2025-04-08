@@ -34,7 +34,7 @@ h1 {
 }
 
 .card {
-  @apply bg-gray-50 text-black px-6 py-5 rounded-2xl border border-gray-200 shadow-xl;
+  @apply bg-gray-50 text-black px-6 py-5 rounded-2xl border border-gray-200 shadow-md;
 }
 
 .read-more {

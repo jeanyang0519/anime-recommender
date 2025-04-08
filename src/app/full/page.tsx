@@ -296,8 +296,8 @@ export default function EliteFullList() {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6">
-        <Link href="/elite" className="btn-yellow w-full sm:w-auto">
-          ⬅️ Go to Elite Picks
+        <Link href="/elite" className="btn-small w-full sm:w-auto">
+          Go to Elite Picks
         </Link>
        
       </div>

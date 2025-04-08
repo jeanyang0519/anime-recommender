@@ -68,9 +68,9 @@ export default function Navbar() {
         <Image
           src="/images/logo.png"
           alt="Logo"
-          width={80}
-          height={80}
-          className="rounded-full"
+          width={60}
+          height={60}
+          className="object-contain scale-125"
         />
           Anime Rec
         </Link>
