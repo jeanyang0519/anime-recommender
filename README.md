@@ -1,12 +1,12 @@
-# 🎌 Anime Rec
+# Anime Rec
 
 **Anime Rec** is a full-stack anime recommendation app built with **Next.js**, **TypeScript**, and **Tailwind CSS**. Whether you're feeling chaotic, curious, or just indecisive, this app helps you discover anime that fits your vibe — through a quiz, a random pick, or a curated list.
 
-## 🚀 Live Demo
+## Live Demo
 
 🔗 [anime-rec.com](https://anime-rec.com)
 
-## 🌟 Features
+## Features
 
 - **Random Pick** – Get a surprise anime recommendation powered by AniList
 - **Take the Quiz** – Personalized results based on your answers
@@ -15,7 +15,7 @@
 
 
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - [Next.js 15 (App Router)](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -25,7 +25,7 @@
 
 
 
-## ✨ Author
+## Author
 
 Built by [Jean Yang](https://jean-yang.com/) – made with love (and too many anime feelings).  
 Check out my other work → [jean-yang.com](https://jean-yang.com/)
