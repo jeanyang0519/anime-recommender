@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
 import { fetchAnimeBySearch } from "../../utils/fetchAnime";
 import { jeansList } from "../data/jeansList"; 
 import FadeText from "../../components/FadeText";
+import LoadingSpinner from "../../components/Loading";
 
 export default function RandomPick() {
   const [anime, setAnime] = useState<any | null>(null);
@@ -66,19 +66,7 @@ export default function RandomPick() {
   }, [anime]);
 
   if (loading)
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <motion.div
-  animate={{ rotate: 360 }}
-  transition={{ repeat: Infinity, ease: "linear", duration: 1 }}
-  className="text-4xl"
->
-⏳
-</motion.div>
-<div className="font-2xl">Loading</div>
-
-      </div>
-    );
+    return <LoadingSpinner />;
 
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
