@@ -16,14 +16,14 @@ export default function HomePage() {
         
 
         <Link href="/quiz" className="option-yellow">
-          🧠 Take the Quiz
+          Take the Quiz
         </Link>
 
         <Link href="/elite" className="option-yellow">
-          🌟 Elite Picks
+          Elite Picks
         </Link>
         <Link href="/random" className="option-yellow">
-          🎲 Random Pick
+          Random Pick
         </Link>
       </div>
     </div>

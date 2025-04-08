@@ -82,7 +82,7 @@ export default function RandomPick() {
 
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
-      <h1 className="title">🎲 Your Random Anime Pick</h1>
+      <h1 className="title">Your Random Anime Pick</h1>
       <div className="card w-full max-w-2xl mx-auto">
         <h2 className="text-2xl font-semibold mb-2">
           {anime.title.romaji}
@@ -101,8 +101,8 @@ export default function RandomPick() {
 
       </div>
       <div className="flex flex-row sm:flex-row gap-4 ">
-        <button onClick={getRandom} className="btn-yellow ">
-          🔁 Try Again
+        <button onClick={getRandom} className="btn-small">
+          Try Again
         </button>
        
       </div>

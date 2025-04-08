@@ -71,10 +71,10 @@ export default function QuizPage() {
     return (
       <div className="p-8 max-w-7xl mx-auto text-center">
         <h1 className="title">
-          🍿 Your Anime Watchlist Awaits
+          Your Anime Watchlist Awaits
         </h1>
         <p className="text-lg my-4">
-          Based on your vibe check, here's what you should absolutely be
+          Based on your vibe check, here's what you should be
           watching next:
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch min-h-0">
@@ -102,9 +102,9 @@ export default function QuizPage() {
             </div>
           ))}
         </div>
-        <div className="flex flex-row sm:flex-row gap-4 justify-center mt-4">
-          <button onClick={restartQuiz} className="btn-yellow">
-            🔁 Try Again
+        <div className="flex flex-row sm:flex-row gap-4 justify-center mt-8">
+          <button onClick={restartQuiz} className="btn-small">
+            Try Again
           </button>
           
         </div>
@@ -120,10 +120,10 @@ export default function QuizPage() {
   return (
     <div className="p-8 max-w-auto mx-auto text-center">
       <h1 className="title">
-        🪄 Make your choice and see what unfolds
+        Make your choice and see what unfolds
       </h1>
 
-      <p className="text-xl font-medium my-6">{q.question}</p>
+      <p className="text-3xl font-medium my-6">{q.question}</p>
       <div className="flex flex-col gap-6 items-center">
         {q.options.map((option, i) => (
           <button

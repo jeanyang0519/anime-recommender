@@ -4,17 +4,16 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto p-8 space-y-12">
+    <div className="max-w-4xl mx-auto p-8 space-y-50">
       {/* Message from Jean */}
       <section>
-      <h2 className="about-subtitle">Message from Jean</h2>
-      <div className="text-box">
+      <h2 className="about-subtitle mt-8">Message from Jean</h2>
+      <div className="text-box bg-amber-50 py-10 px-15 shadow mt-15">
         
         
             <p className="text">Hi,</p>
         
-            <p className="text">
-                
+            <p className="text whitespace-pre-wrap">
                 I'm Jean. I created this website out of a deep love for anime. I grew up watching it
             from my parents’ apartment in Taipei, and it’s been with me through all
             of life’s ups and downs. </p>
@@ -32,19 +31,19 @@ export default function AboutPage() {
       {/* Page Explanation */}
       <section>
         <h2 className="about-subtitle">What You'll Find on This Site</h2>
-        <div className="text-box">
+        <div className="text-box mt-15">
         <ul className=" list-inside space-y-6 text-lg">
           <li>
-            <strong>🎲 Random Pick</strong> – A surprise anime recommendation, randomly generated using the AniList API.
+            <strong>Random Pick</strong> – A surprise anime recommendation, randomly generated using the AniList API.
           </li>
           <li>
-            <strong>🧠 Take the Quiz</strong> – Personalized anime suggestions based on your answers.
+            <strong>Take the Quiz</strong> – Personalized anime suggestions based on your answers.
           </li>
           <li>
-            <strong>📚 Jean's Anime List</strong> – My personal collection of anime, thoughtfully curated with love.
+            <strong>Jean's Anime List</strong> – My personal collection of anime, thoughtfully curated with love.
           </li>
           <li>
-            <strong>🌟 Elite Picks</strong> – A random selection from Jean's Anime List—only the best of the best.
+            <strong>Elite Picks</strong> – A random selection from Jean's Anime List—only the best of the best.
           </li>
         </ul>
         </div>

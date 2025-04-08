@@ -50,7 +50,7 @@ export default function EliteFullList() {
 
   return (
     <div className="min-h-screen p-8 flex flex-col items-center gap-4">
-      <h1 className="text-4xl font-bold">📚 Jean’s Anime List</h1>
+      <h1 className="text-4xl font-bold">Jean’s Anime List</h1>
       <p className="text-lg mb-8">Curated with love and care </p>
       <div className="filter-container">
         {/* Tier Filter */}

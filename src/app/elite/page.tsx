@@ -19,7 +19,7 @@ export default function ElitePage() {
 
   return (
     <div className="min-h-screen p-8 text-center flex flex-col items-center gap-4">
-      <h1 className="title">🌟 Elite Picks</h1>
+      <h1 className="title">Elite Picks</h1>
       <p className="text-lg ">Carefully curated just for you</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch w-full max-w-6xl">
@@ -52,11 +52,11 @@ export default function ElitePage() {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <button onClick={regenerate} className="btn-yellow w-full sm:w-auto">
-          🔁 Try Again
+        <button onClick={regenerate} className="btn-small mt-8 w-full sm:w-auto">
+          Try Again
         </button>
-        <Link href="/full" className="btn-yellow w-full sm:w-auto">
-          📚 Show Full List
+        <Link href="/full" className="btn-small mt-8 w-full sm:w-auto">
+          Show Full List
         </Link>
    
       </div>
