@@ -73,7 +73,7 @@ export default function RandomPick() {
       <h1 className="title">Your Random Anime Pick</h1>
       <div className="card w-full max-w-2xl mx-auto">
         <h2 className="text-2xl font-semibold mb-2">
-          {anime.title.romaji}
+          {anime.title.english}
           {anime.title.native && (
             <span className="block text-sm text-gray-500">
               ({anime.title.native})

@@ -8,6 +8,8 @@ export async function fetchAnimeByGenres(genres: string[]): Promise<any[]> {
           id
           title {
             romaji
+            english
+            native
           }
           coverImage {
             large

@@ -84,7 +84,7 @@ export default function QuizPage() {
               className="card transition-all duration-300 ease-in-out w-full h-full flex flex-col"
             >
               <h2 className="text-2xl font-semibold mb-2">
-                {anime.title.romaji}
+                {anime.title.english}
                 {anime.title.native && (
                   <span className="block text-sm text-gray-500">
                     ({anime.title.native})
