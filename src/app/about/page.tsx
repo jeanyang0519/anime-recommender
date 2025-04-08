@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -15,13 +14,13 @@ export default function AboutPage() {
         
             <p className="text whitespace-pre-wrap">
                 I'm Jean. I created this website out of a deep love for anime. I grew up watching it
-            from my parents’ apartment in Taipei, and it’s been with me through all
-            of life’s ups and downs. </p>
+            from my parents&rsquo; apartment in Taipei, and it&rsquo;s been with me through all
+            of life&rsquo;s ups and downs. </p>
             <p className="text"> Naruto taught me to chase my dreams fearlessly, Hunter x Hunter
             showed me the true meaning of friendship, and Skip and Loafer reminded
             me to work hard while enjoying the little moments.</p>
             <p className="text"> 
-            I hope you’ll give anime a try—and maybe, like me, you’ll find a spark of
+            I hope you&rsquo;ll give anime a try—and maybe, like me, you&rsquo;ll find a spark of
             courage in it too.
             </p>
             <p className="text">Best,<br />Jean</p>

@@ -17,13 +17,7 @@ export default function EliteFullList() {
   const tagRef = useRef<HTMLDivElement>(null);
 
   const filteredList = jeansList.filter((anime) => {
-    const inSelectedTag =
-      selectedTags.length === 0 ||
-      (anime.tags && selectedTags.some((tag) => anime.tags.includes(tag)));
-
-    const inSelectedTier =
-      selectedTiers.length === 0 ||
-      (anime.tier && selectedTiers.includes(anime.tier));
+    
 
     return (
       (selectedTiers.length === 0 || selectedTiers.includes(anime.tier)) &&

@@ -42,7 +42,7 @@ export default function ElitePage() {
             {anime.note && (
               <div className="mt-2 text-left">
                 <h3 className="text-sm font-semibold mb-1 mt-1">
-                  Jean's Note:
+                  Jean&rsquo;s Note:
                 </h3>
                 <p className="text-sm  text-gray-700">{anime.note}</p>
               </div>
